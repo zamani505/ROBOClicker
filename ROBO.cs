@@ -114,36 +114,12 @@ namespace ROBOClicker
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //
-            if (string.IsNullOrEmpty(txtSite.Text))
-            {
-                MessageBox.Show("Please enter url site");
-                txtSite.BackColor = Color.Wheat;
-                return;
-            }
-            if (string.IsNullOrEmpty(txtWaiteTime2.Text))
-            {
-                MessageBox.Show("Please enter wait time");
-                txtWaiteTime2.BackColor = Color.Wheat;
-                return;
-            }
-            if (string.IsNullOrEmpty(txtDestinationSite3.Text))
-            {
-                MessageBox.Show("Please enter your site");
-                txtDestinationSite3.BackColor = Color.Wheat;
-                return;
-            }
-            if (string.IsNullOrEmpty(txtSeoText2.Text))
-            {
-                MessageBox.Show("Please enter seo text");
-                txtSeoText2.BackColor = Color.Wheat;
-                return;
-            }
-            rdoChecked = systemkaran.Checked ? systemkaran.Name : arpce.Name;
-            urls = txtSite.Text.Split(',');
-            waitTime = int.Parse(txtWaiteTime2.Text);
-            yourSite = txtDestinationSite3.Text;
-            seoText = txtSeoText2.Text;
+          
+           // rdoChecked = systemkaran.Checked ? systemkaran.Name : arpce.Name;
+            urls = txtSite2.Text.Split(',');
+            waitTime = int.Parse(txtWaiteTime.Text);
+            yourSite = txtDestinationSite.Text;
+            seoText = txtSeoText.Text;
             progressValue = 0;
             prgs.Value = 0;
             button1.Enabled = false;
@@ -152,26 +128,26 @@ namespace ROBOClicker
 
         private void txtSite_TextChanged(object sender, EventArgs e)
         {
-            if (txtSite.Text.Length > 0)
-                txtSite.BackColor = Color.White;
+            if (txtSite2.Text.Length > 0)
+                txtSite2.BackColor = Color.White;
         }
 
         private void txtDestinationSite_TextChanged(object sender, EventArgs e)
         {
-            if (txtDestinationSite3.Text.Length > 0)
-                txtDestinationSite3.BackColor = Color.White;
+            if (txtDestinationSite.Text.Length > 0)
+                txtDestinationSite.BackColor = Color.White;
         }
 
         private void txtWaiteTime_TextChanged(object sender, EventArgs e)
         {
-            if (txtWaiteTime2.Text.Length > 0)
-                txtWaiteTime2.BackColor = Color.White;
+            if (txtWaiteTime.Text.Length > 0)
+                txtWaiteTime.BackColor = Color.White;
         }
 
         private void txtSeoText_TextChanged(object sender, EventArgs e)
         {
-            if (txtSeoText2.Text.Length > 0)
-                txtSeoText2.BackColor = Color.White;
+            if (txtSeoText.Text.Length > 0)
+                txtSeoText.BackColor = Color.White;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

@@ -33,19 +33,8 @@ namespace ROBOClicker
             System.Windows.Forms.Timer timer1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ROBO));
             this.browser = new CefSharp.WinForms.ChromiumWebBrowser();
-            this.txtSite = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.arpce = new System.Windows.Forms.RadioButton();
-            this.systemkaran = new System.Windows.Forms.RadioButton();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtSeoText2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.prgs = new System.Windows.Forms.ProgressBar();
-            this.txtWaiteTime2 = new System.Windows.Forms.TextBox();
-            this.txtDestinationSite3 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblVpnName = new System.Windows.Forms.Label();
             this.lblVPNMess = new System.Windows.Forms.Label();
@@ -68,12 +57,15 @@ namespace ROBOClicker
             this.txtDestinationSite = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtSite = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             timer1 = new System.Windows.Forms.Timer(this.components);
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.grpSeoSite.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -86,156 +78,29 @@ namespace ROBOClicker
             // 
             this.browser.ActivateBrowserOnCreation = false;
 // TODO: Code generation for '' failed because of Exception 'Invalid Primitive Type: System.IntPtr. Consider using CodeObjectCreateExpression.'.
-            this.browser.Location = new System.Drawing.Point(6, 19);
+            this.browser.Location = new System.Drawing.Point(47, 636);
             this.browser.Name = "browser";
-            this.browser.Size = new System.Drawing.Size(436, 210);
+            this.browser.Size = new System.Drawing.Size(159, 58);
             this.browser.TabIndex = 0;
             this.browser.LoadingStateChanged += new System.EventHandler<CefSharp.LoadingStateChangedEventArgs>(this.chromiumWebBrowser1_LoadingStateChanged);
             this.browser.IsBrowserInitializedChanged += new System.EventHandler(this.browser_IsBrowserInitializedChanged);
             // 
-            // txtSite
-            // 
-            this.txtSite.Location = new System.Drawing.Point(414, 29);
-            this.txtSite.Multiline = true;
-            this.txtSite.Name = "txtSite";
-            this.txtSite.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtSite.Size = new System.Drawing.Size(350, 229);
-            this.txtSite.TabIndex = 1;
-            this.txtSite.Text = resources.GetString("txtSite.Text");
-            this.txtSite.TextChanged += new System.EventHandler(this.txtSite_TextChanged);
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(530, 354);
+            this.button1.Location = new System.Drawing.Point(353, 238);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(156, 23);
+            this.button1.Size = new System.Drawing.Size(181, 23);
             this.button1.TabIndex = 2;
             this.button1.Text = "START";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.LightGray;
-            this.groupBox1.Controls.Add(this.txtSite);
-            this.groupBox1.Controls.Add(this.arpce);
-            this.groupBox1.Controls.Add(this.systemkaran);
-            this.groupBox1.Controls.Add(this.browser);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtSeoText2);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.prgs);
-            this.groupBox1.Controls.Add(this.txtWaiteTime2);
-            this.groupBox1.Controls.Add(this.txtDestinationSite3);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox1.Location = new System.Drawing.Point(8, 347);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(807, 394);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            // 
-            // arpce
-            // 
-            this.arpce.AutoSize = true;
-            this.arpce.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.arpce.ForeColor = System.Drawing.Color.Red;
-            this.arpce.Location = new System.Drawing.Point(176, 297);
-            this.arpce.Name = "arpce";
-            this.arpce.Size = new System.Drawing.Size(70, 17);
-            this.arpce.TabIndex = 12;
-            this.arpce.Text = "Arpce.net";
-            this.arpce.UseVisualStyleBackColor = true;
-            // 
-            // systemkaran
-            // 
-            this.systemkaran.AutoSize = true;
-            this.systemkaran.Checked = true;
-            this.systemkaran.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.systemkaran.ForeColor = System.Drawing.Color.Red;
-            this.systemkaran.Location = new System.Drawing.Point(176, 274);
-            this.systemkaran.Name = "systemkaran";
-            this.systemkaran.Size = new System.Drawing.Size(85, 17);
-            this.systemkaran.TabIndex = 11;
-            this.systemkaran.TabStop = true;
-            this.systemkaran.Text = "Systemkaran";
-            this.systemkaran.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(624, 320);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Seo Text";
-            // 
-            // txtSeoText2
-            // 
-            this.txtSeoText2.Location = new System.Drawing.Point(448, 317);
-            this.txtSeoText2.Name = "txtSeoText2";
-            this.txtSeoText2.Size = new System.Drawing.Size(169, 20);
-            this.txtSeoText2.TabIndex = 9;
-            this.txtSeoText2.Text = "گواهینامه ایزو";
-            this.txtSeoText2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtSeoText2.TextChanged += new System.EventHandler(this.txtSeoText_TextChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(624, 292);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(170, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Wait time in your site (miliiseccond)";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(624, 261);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Your site url";
-            // 
             // prgs
             // 
-            this.prgs.Location = new System.Drawing.Point(0, 393);
+            this.prgs.Location = new System.Drawing.Point(12, 719);
             this.prgs.Name = "prgs";
-            this.prgs.Size = new System.Drawing.Size(807, 23);
+            this.prgs.Size = new System.Drawing.Size(800, 23);
             this.prgs.TabIndex = 6;
-            // 
-            // txtWaiteTime2
-            // 
-            this.txtWaiteTime2.Location = new System.Drawing.Point(448, 289);
-            this.txtWaiteTime2.Name = "txtWaiteTime2";
-            this.txtWaiteTime2.Size = new System.Drawing.Size(169, 20);
-            this.txtWaiteTime2.TabIndex = 5;
-            this.txtWaiteTime2.Text = "120000";
-            this.txtWaiteTime2.TextChanged += new System.EventHandler(this.txtWaiteTime_TextChanged);
-            // 
-            // txtDestinationSite3
-            // 
-            this.txtDestinationSite3.Location = new System.Drawing.Point(448, 261);
-            this.txtDestinationSite3.Name = "txtDestinationSite3";
-            this.txtDestinationSite3.Size = new System.Drawing.Size(169, 20);
-            this.txtDestinationSite3.TabIndex = 4;
-            this.txtDestinationSite3.Text = "https://sistemkaran.ir/%da%af%d9%88%d8%a7%d9%87%db%8c%d9%86%d8%a7%d9%85%d9%87-%d8" +
-    "%a7%db%8c%d8%b2%d9%88/";
-            this.txtDestinationSite3.TextChanged += new System.EventHandler(this.txtDestinationSite_TextChanged);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(19, 257);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(122, 120);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
             // 
             // groupBox2
             // 
@@ -398,7 +263,7 @@ namespace ROBOClicker
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(181, 23);
             this.button2.TabIndex = 16;
-            this.button2.Text = "Create Vpn Connection";
+            this.button2.Text = "Save YorSite Configuration";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -415,7 +280,7 @@ namespace ROBOClicker
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(30, 118);
+            this.label9.Location = new System.Drawing.Point(34, 118);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(59, 13);
             this.label9.TabIndex = 14;
@@ -435,7 +300,7 @@ namespace ROBOClicker
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(30, 92);
+            this.label8.Location = new System.Drawing.Point(28, 92);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(64, 13);
             this.label8.TabIndex = 8;
@@ -472,30 +337,72 @@ namespace ROBOClicker
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.txtSite);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Location = new System.Drawing.Point(9, 295);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(804, 324);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            // 
+            // txtSite
+            // 
+            this.txtSite.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSite.Location = new System.Drawing.Point(94, 17);
+            this.txtSite.Multiline = true;
+            this.txtSite.Name = "txtSite";
+            this.txtSite.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtSite.Size = new System.Drawing.Size(437, 174);
+            this.txtSite.TabIndex = 15;
+            this.txtSite.Text = resources.GetString("txtSite.Text");
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 110);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 13);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Reportage Site :";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(353, 209);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(181, 23);
+            this.button3.TabIndex = 17;
+            this.button3.Text = "Save RepostageSite";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // ROBO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(824, 785);
+            this.ClientSize = new System.Drawing.Size(824, 838);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpSeoSite);
+            this.Controls.Add(this.prgs);
+            this.Controls.Add(this.browser);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "ROBO";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ROBO";
             this.Load += new System.EventHandler(this.ROBO_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.grpSeoSite.ResumeLayout(false);
             this.grpSeoSite.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -503,19 +410,8 @@ namespace ROBOClicker
         #endregion
 
         private CefSharp.WinForms.ChromiumWebBrowser browser;
-        private System.Windows.Forms.TextBox txtSite;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtWaiteTime2;
-        private System.Windows.Forms.TextBox txtDestinationSite3;
         private System.Windows.Forms.ProgressBar prgs;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtSeoText2;
-        private System.Windows.Forms.RadioButton arpce;
-        private System.Windows.Forms.RadioButton systemkaran;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox txtServerIP;
@@ -538,5 +434,9 @@ namespace ROBOClicker
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblSiteMess;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtSite;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button3;
     }
 }
