@@ -32,7 +32,7 @@ namespace ROBOClicker
         public static string rdoChecked = "";
         CreateConnection createConn = new CreateConnection();
         SaveData saveData = new SaveData();
-      
+        public bool isVpnConnected = false;
         public async Task InitBrowser()
         {
 
@@ -48,7 +48,14 @@ namespace ROBOClicker
         {
             InitialVPN();
             InitialSite();
+            InitialReportageSite();
             InitBrowser().GetAwaiter();
+        }
+
+        private void InitialReportageSite()
+        {
+            var rpt = saveData.ReadReportageSetting();
+            txtSite.Text = rpt != null ? rpt.ReportageSite : "";
         }
 
         private void InitialSite()
@@ -59,7 +66,7 @@ namespace ROBOClicker
                 txtDestinationSite.Text +=( url + Environment.NewLine);
             txtWaiteTime.Text = site.WaitTime.ToString();
             txtSeoText.Text = site.SeoText;
-
+            grpReportage.Enabled = true;
         }
 
         private void InitialVPN()
@@ -70,6 +77,7 @@ namespace ROBOClicker
             txtServerIP.Text=vpn.ServerIP;
             txtUsername.Text = vpn.UserName;
             txtPassword.Text= vpn.Password;
+            grpSeoSite.Enabled = true;
         }
 
         private void chromiumWebBrowser1_LoadingStateChanged(object sender, LoadingStateChangedEventArgs e)
@@ -114,7 +122,11 @@ namespace ROBOClicker
 
         private void button1_Click(object sender, EventArgs e)
         {
-          
+            if (!isVpnConnected && !chkWithoutVpn.Checked)
+            {
+                MessageBox.Show("Please connect vpn!");
+                return;
+            }
            // rdoChecked = systemkaran.Checked ? systemkaran.Name : arpce.Name;
             urls = txtSite.Text.Split(',');
             waitTime = int.Parse(txtWaiteTime.Text);
@@ -210,11 +222,14 @@ namespace ROBOClicker
                     lblVPNMess.Text = "";
                     lblVPNMess.Text = createConn.ConnectVPN(lblVpnName.Text, txtUsername.Text, txtPassword.Text);
                     SaveVpn();
+                    isVpnConnected = true;
+                    grpSeoSite.Enabled = true;
                 }
 
             }
             catch (Exception exception)
             {
+                isVpnConnected = false;
                 MessageBox.Show("متاسفانه مشکلی بوجود آمده است" + Environment.NewLine + exception.Message);
             }
             
@@ -279,6 +294,7 @@ namespace ROBOClicker
                 };
                 saveData.WriteSiteSetting(site);
                 lblSiteMess.Text = "Your setting is set!";
+                grpReportage.Enabled = true;
             }
         }
 
@@ -345,6 +361,14 @@ namespace ROBOClicker
         private void txtSite_TextChanged_1(object sender, EventArgs e)
         {
             txtSite.BackColor = Color.White;
+        }
+
+        private void chkWithoutVpn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkWithoutVpn.Checked || Validate())
+                grpSeoSite.Enabled = true;
+            else
+                grpSeoSite.Enabled = false;
         }
     }
     public class JavascriptManager : ILoadHandler, IRenderProcessMessageHandler

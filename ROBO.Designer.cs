@@ -36,6 +36,7 @@ namespace ROBOClicker
             this.button1 = new System.Windows.Forms.Button();
             this.prgs = new System.Windows.Forms.ProgressBar();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chkWithoutVpn = new System.Windows.Forms.CheckBox();
             this.lblVpnName = new System.Windows.Forms.Label();
             this.lblVPNMess = new System.Windows.Forms.Label();
             this.btnConnectVpn = new System.Windows.Forms.Button();
@@ -57,7 +58,7 @@ namespace ROBOClicker
             this.txtDestinationSite = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpReportage = new System.Windows.Forms.GroupBox();
             this.lblReportageMess = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.txtSite = new System.Windows.Forms.TextBox();
@@ -66,7 +67,7 @@ namespace ROBOClicker
             this.groupBox2.SuspendLayout();
             this.grpSeoSite.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.grpReportage.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -98,13 +99,14 @@ namespace ROBOClicker
             // 
             // prgs
             // 
-            this.prgs.Location = new System.Drawing.Point(12, 625);
+            this.prgs.Location = new System.Drawing.Point(12, 663);
             this.prgs.Name = "prgs";
             this.prgs.Size = new System.Drawing.Size(800, 23);
             this.prgs.TabIndex = 6;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.chkWithoutVpn);
             this.groupBox2.Controls.Add(this.lblVpnName);
             this.groupBox2.Controls.Add(this.lblVPNMess);
             this.groupBox2.Controls.Add(this.btnConnectVpn);
@@ -119,10 +121,21 @@ namespace ROBOClicker
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox2.Location = new System.Drawing.Point(8, 22);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(805, 111);
+            this.groupBox2.Size = new System.Drawing.Size(805, 136);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "L2TP VPN Configuration";
+            // 
+            // chkWithoutVpn
+            // 
+            this.chkWithoutVpn.AutoSize = true;
+            this.chkWithoutVpn.Location = new System.Drawing.Point(95, 108);
+            this.chkWithoutVpn.Name = "chkWithoutVpn";
+            this.chkWithoutVpn.Size = new System.Drawing.Size(62, 17);
+            this.chkWithoutVpn.TabIndex = 11;
+            this.chkWithoutVpn.Text = "No Vpn";
+            this.chkWithoutVpn.UseVisualStyleBackColor = true;
+            this.chkWithoutVpn.CheckedChanged += new System.EventHandler(this.chkWithoutVpn_CheckedChanged);
             // 
             // lblVpnName
             // 
@@ -232,7 +245,8 @@ namespace ROBOClicker
             this.grpSeoSite.Controls.Add(this.label8);
             this.grpSeoSite.Controls.Add(this.txtDestinationSite);
             this.grpSeoSite.Controls.Add(this.label7);
-            this.grpSeoSite.Location = new System.Drawing.Point(8, 140);
+            this.grpSeoSite.Enabled = false;
+            this.grpSeoSite.Location = new System.Drawing.Point(8, 176);
             this.grpSeoSite.Name = "grpSeoSite";
             this.grpSeoSite.Size = new System.Drawing.Size(805, 149);
             this.grpSeoSite.TabIndex = 7;
@@ -338,19 +352,20 @@ namespace ROBOClicker
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // groupBox1
+            // grpReportage
             // 
-            this.groupBox1.Controls.Add(this.lblReportageMess);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.txtSite);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.browser);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(9, 295);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(804, 324);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
+            this.grpReportage.Controls.Add(this.lblReportageMess);
+            this.grpReportage.Controls.Add(this.button3);
+            this.grpReportage.Controls.Add(this.txtSite);
+            this.grpReportage.Controls.Add(this.label1);
+            this.grpReportage.Controls.Add(this.browser);
+            this.grpReportage.Controls.Add(this.button1);
+            this.grpReportage.Enabled = false;
+            this.grpReportage.Location = new System.Drawing.Point(9, 330);
+            this.grpReportage.Name = "grpReportage";
+            this.grpReportage.Size = new System.Drawing.Size(804, 324);
+            this.grpReportage.TabIndex = 8;
+            this.grpReportage.TabStop = false;
             // 
             // lblReportageMess
             // 
@@ -397,8 +412,8 @@ namespace ROBOClicker
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(824, 661);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(824, 695);
+            this.Controls.Add(this.grpReportage);
             this.Controls.Add(this.grpSeoSite);
             this.Controls.Add(this.prgs);
             this.Controls.Add(this.pictureBox2);
@@ -414,8 +429,8 @@ namespace ROBOClicker
             this.grpSeoSite.ResumeLayout(false);
             this.grpSeoSite.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpReportage.ResumeLayout(false);
+            this.grpReportage.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -447,10 +462,11 @@ namespace ROBOClicker
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblSiteMess;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpReportage;
         private System.Windows.Forms.TextBox txtSite;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label lblReportageMess;
+        private System.Windows.Forms.CheckBox chkWithoutVpn;
     }
 }
