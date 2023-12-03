@@ -116,7 +116,7 @@ namespace ROBOClicker
         {
           
            // rdoChecked = systemkaran.Checked ? systemkaran.Name : arpce.Name;
-            urls = txtSite2.Text.Split(',');
+            urls = txtSite.Text.Split(',');
             waitTime = int.Parse(txtWaiteTime.Text);
             yourSite = txtDestinationSite.Text;
             seoText = txtSeoText.Text;
@@ -128,8 +128,8 @@ namespace ROBOClicker
 
         private void txtSite_TextChanged(object sender, EventArgs e)
         {
-            if (txtSite2.Text.Length > 0)
-                txtSite2.BackColor = Color.White;
+            if (txtSite.Text.Length > 0)
+                txtSite.BackColor = Color.White;
         }
 
         private void txtDestinationSite_TextChanged(object sender, EventArgs e)

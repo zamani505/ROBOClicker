@@ -52,11 +52,11 @@
       <HintPath>packages\CefSharp.WinForms.96.0.180\lib\net462\CefSharp.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="DotRas">
-      <HintPath>..\..\ROBOClicker\bin\Debug\DotRas.dll</HintPath>
+      <HintPath>..\..\DotRas.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ROBOClicker\bin\Debug\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
