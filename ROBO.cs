@@ -11,6 +11,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ROBOClicker.Model;
+using ROBOClicker.Service;
+
 //using CefSharp;
 //using CefSharp.WinForms;
 
@@ -27,7 +30,9 @@ namespace ROBOClicker
         public static int progressValue = 0;
         public static string seoText = "";
         public static string rdoChecked = "";
-      //  public static string ssssss = "";
+        CreateConnection createConn = new CreateConnection();
+        SaveData saveData = new SaveData();
+      
         public async Task InitBrowser()
         {
 
@@ -41,7 +46,30 @@ namespace ROBOClicker
 
         private void ROBO_Load(object sender, EventArgs e)
         {
+            InitialVPN();
+            InitialSite();
             InitBrowser().GetAwaiter();
+        }
+
+        private void InitialSite()
+        {
+            var site = saveData.ReadSiteSetting();
+            if(site==null)return;
+            foreach (var url in site.Urls)
+                txtDestinationSite.Text +=( url + Environment.NewLine);
+            txtWaiteTime.Text = site.WaitTime.ToString();
+            txtSeoText.Text = site.SeoText;
+
+        }
+
+        private void InitialVPN()
+        {
+            var vpn = saveData.ReadVpnSetting();
+            if (vpn == null)return;
+            lblVpnName.Text=vpn.Name;
+            txtServerIP.Text=vpn.ServerIP;
+            txtUsername.Text = vpn.UserName;
+            txtPassword.Text= vpn.Password;
         }
 
         private void chromiumWebBrowser1_LoadingStateChanged(object sender, LoadingStateChangedEventArgs e)
@@ -93,29 +121,29 @@ namespace ROBOClicker
                 txtSite.BackColor = Color.Wheat;
                 return;
             }
-            if (string.IsNullOrEmpty(txtWaiteTime.Text))
+            if (string.IsNullOrEmpty(txtWaiteTime2.Text))
             {
                 MessageBox.Show("Please enter wait time");
-                txtWaiteTime.BackColor = Color.Wheat;
+                txtWaiteTime2.BackColor = Color.Wheat;
                 return;
             }
-            if (string.IsNullOrEmpty(txtDestinationSite.Text))
+            if (string.IsNullOrEmpty(txtDestinationSite3.Text))
             {
                 MessageBox.Show("Please enter your site");
-                txtDestinationSite.BackColor = Color.Wheat;
+                txtDestinationSite3.BackColor = Color.Wheat;
                 return;
             }
-            if (string.IsNullOrEmpty(txtSeoText.Text))
+            if (string.IsNullOrEmpty(txtSeoText2.Text))
             {
                 MessageBox.Show("Please enter seo text");
-                txtSeoText.BackColor = Color.Wheat;
+                txtSeoText2.BackColor = Color.Wheat;
                 return;
             }
             rdoChecked = systemkaran.Checked ? systemkaran.Name : arpce.Name;
             urls = txtSite.Text.Split(',');
-            waitTime = int.Parse(txtWaiteTime.Text);
-            yourSite = txtDestinationSite.Text;
-            seoText = txtSeoText.Text;
+            waitTime = int.Parse(txtWaiteTime2.Text);
+            yourSite = txtDestinationSite3.Text;
+            seoText = txtSeoText2.Text;
             progressValue = 0;
             prgs.Value = 0;
             button1.Enabled = false;
@@ -130,20 +158,188 @@ namespace ROBOClicker
 
         private void txtDestinationSite_TextChanged(object sender, EventArgs e)
         {
-            if (txtDestinationSite.Text.Length > 0)
-                txtDestinationSite.BackColor = Color.White;
+            if (txtDestinationSite3.Text.Length > 0)
+                txtDestinationSite3.BackColor = Color.White;
         }
 
         private void txtWaiteTime_TextChanged(object sender, EventArgs e)
         {
-            if (txtWaiteTime.Text.Length > 0)
-                txtWaiteTime.BackColor = Color.White;
+            if (txtWaiteTime2.Text.Length > 0)
+                txtWaiteTime2.BackColor = Color.White;
         }
 
         private void txtSeoText_TextChanged(object sender, EventArgs e)
         {
-            if (txtSeoText.Text.Length > 0)
-                txtSeoText.BackColor = Color.White;
+            if (txtSeoText2.Text.Length > 0)
+                txtSeoText2.BackColor = Color.White;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnCreatVpn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Validate())
+                {
+                    if (!ValidateIPv4(txtServerIP.Text))
+                    {
+                        MessageBox.Show("IP not valid!");
+                        return;
+                    }
+
+                    string vpnName = "ROBO_" + DateTime.Now.ToString("mmss");
+                    lblVPNMess.Text = createConn.CreateVPN(vpnName, txtServerIP.Text);
+                    btnConnectVpn.Enabled = true;
+                    lblVpnName.Text = vpnName;
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("متاسفانه مشکلی بوجود آمده است" + Environment.NewLine + exception.Message);
+            }
+        }
+        public bool ValidateIPv4(string ipString)
+        {
+            if (String.IsNullOrWhiteSpace(ipString))
+            {
+                return false;
+            }
+
+            string[] splitValues = ipString.Split('.');
+            if (splitValues.Length != 4)
+            {
+                return false;
+            }
+
+            byte tempForParsing;
+
+            return splitValues.All(r => byte.TryParse(r, out tempForParsing));
+        }
+        private void btnConnectVpn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Validate())
+                {
+                    if (!ValidateIPv4(txtServerIP.Text))
+                    {
+                        MessageBox.Show("IP not valid!");
+                        return;
+                    }
+
+                    lblVPNMess.Text = "";
+                    lblVPNMess.Text = createConn.ConnectVPN(lblVpnName.Text, txtUsername.Text, txtPassword.Text);
+                    SaveVpn();
+                }
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("متاسفانه مشکلی بوجود آمده است" + Environment.NewLine + exception.Message);
+            }
+            
+        }
+
+        private bool Validate()
+        {
+            var validate = true;
+            if (string.IsNullOrEmpty(txtServerIP.Text))
+            {
+                txtServerIP.BackColor = Color.Wheat;
+                validate = false;
+            }
+            if (string.IsNullOrEmpty(txtUsername.Text))
+            {
+                txtUsername.BackColor = Color.Wheat;
+                validate = false;
+            }
+            if (string.IsNullOrEmpty(txtPassword.Text))
+            {
+                txtPassword.BackColor = Color.Wheat;
+                validate = false;
+            }
+            return validate;
+        }
+
+        private void SaveVpn()
+        {
+            var vpn = new Vpn()
+            {
+                ServerIP = txtServerIP.Text,UserName = txtUsername.Text,Password = txtPassword.Text,
+                Name = lblVpnName.Text
+                
+            };
+            saveData.WriteVpnSetting(vpn);
+        }
+
+        private void txtServerIP_TextChanged(object sender, EventArgs e)
+        {
+            txtServerIP.BackColor=Color.White;
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+            txtUsername.BackColor = Color.White;
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            txtPassword.BackColor = Color.White;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (SiteValidate())
+            {
+                var site = new Site
+                {
+                    Urls = txtDestinationSite.Text.Split(new []{Environment.NewLine},StringSplitOptions.None),
+                    SeoText = txtSeoText.Text,
+                    WaitTime = int.Parse(txtWaiteTime.Text)
+                };
+                saveData.WriteSiteSetting(site);
+                lblSiteMess.Text = "Your setting is set!";
+            }
+        }
+
+        private bool SiteValidate()
+        {
+
+            if (string.IsNullOrEmpty(txtDestinationSite.Text))
+            {
+                txtDestinationSite.BackColor=Color.Wheat;
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtWaiteTime.Text))
+            {
+                txtWaiteTime.BackColor = Color.Wheat;
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtSeoText.Text))
+            {
+                txtSeoText.BackColor = Color.Wheat;
+                return false;
+            }
+            return true;
+        }
+
+        private void txtDestinationSite_TextChanged_1(object sender, EventArgs e)
+        {
+            txtDestinationSite.BackColor = Color.White;
+        }
+
+        private void txtWaiteTime_TextChanged_1(object sender, EventArgs e)
+        {
+            txtWaiteTime.BackColor = Color.White;
+        }
+
+        private void txtSeoText_TextChanged_1(object sender, EventArgs e)
+        {
+            txtSeoText.BackColor = Color.White;
         }
     }
     public class JavascriptManager : ILoadHandler, IRenderProcessMessageHandler
@@ -157,9 +353,9 @@ namespace ROBOClicker
         {
             browser_temp = browser;
             browser_temp.Name = "zagoli";
-            LoadUrl(ROBO.urls[index],browser);
+            LoadUrl(ROBO.urls[index], browser);
         }
-        public void LoadUrl(string url, ChromiumWebBrowser browser=null)
+        public void LoadUrl(string url, ChromiumWebBrowser browser = null)
         {
             if (browser != null)
             {
@@ -176,7 +372,7 @@ namespace ROBOClicker
 
                 browser_temp.LoadUrl(url);
             }
-            
+
 
         }
         public void OnContextCreated(IWebBrowser browserControl, IBrowser browser, IFrame frame)
@@ -198,7 +394,7 @@ namespace ROBOClicker
         {
             try
             {
-                if (frameLoadEndArgs.Frame.IsMain )
+                if (frameLoadEndArgs.Frame.IsMain)
                 {
 
                     string query = "";
@@ -224,7 +420,7 @@ namespace ROBOClicker
                 MessageBox.Show("متاسقانه مشکلی بوجود آمده است لطفا ربات را ببندید دوباره تلاش کنید");
                 Application.Exit();
             }
-          
+
         }
         public string menu = "";
         public bool finishLoading = false;
@@ -237,7 +433,7 @@ namespace ROBOClicker
                 {
 
                     LoadUrl(ROBO.urls[index]);
-                   // ROBO.ssssss += ROBO.urls[index]+"####";
+                    // ROBO.ssssss += ROBO.urls[index]+"####";
                 }
                 else
                 {
@@ -248,15 +444,17 @@ namespace ROBOClicker
                     return;
                 };
             }
-         menu= GetMenu(menu);
+            menu = GetMenu(menu);
             query += "const m=document.getElementById('" + menu + "').getElementsByTagName('a')[0];" + Environment.NewLine;
             query += "m.click();" + Environment.NewLine;
             if (menu.Equals("menu-item-69") || menu.Equals("menu-item-5600"))
                 finishLoading = true;
         }
-        private string GetMenu(string menu) {
+        private string GetMenu(string menu)
+        {
             string nextMenu = "";
-            if (ROBO.rdoChecked == "systemkaran") {
+            if (ROBO.rdoChecked == "systemkaran")
+            {
                 switch (menu)
                 {
                     case "":
@@ -268,15 +466,15 @@ namespace ROBOClicker
                     case "menu-item-150":
                         nextMenu = "menu-item-69";
                         break;
-                    //case "menu-item-69":
-                    //    nextMenu = "menu-item-28";
-                    //    break;
-                    //case "menu-item-28":
-                    //    nextMenu = "menu-item-28";
-                    //    break;
+                        //case "menu-item-69":
+                        //    nextMenu = "menu-item-28";
+                        //    break;
+                        //case "menu-item-28":
+                        //    nextMenu = "menu-item-28";
+                        //    break;
                 }
             }
-            else if(ROBO.rdoChecked== "arpce")
+            else if (ROBO.rdoChecked == "arpce")
             {
                 switch (menu)
                 {
@@ -296,7 +494,7 @@ namespace ROBOClicker
                 }
             }
             return nextMenu;
-        
+
         }
         private void LoadSistemKar(ref string query)
         {

@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "4beb5fbe-b8eb-4c45-b83f-6cdc2e07e532": {
+      "ProjectGuid": "4beb5fbe-b8eb-4c45-b83f-6cdc2e07e532",
+      "DisplayName": "ROBOClicker",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
