@@ -317,6 +317,35 @@ namespace ROBOClicker
         {
             txtSeoText.BackColor = Color.White;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (ValidationRepostageSite())
+            {
+                var rp = new Reportage
+                {
+                    ReportageSite = txtSite.Text
+                };
+                saveData.WriteReportageSetting(rp);
+                lblReportageMess.Text = "Success save reportage site!";
+            }
+        }
+
+        private bool ValidationRepostageSite()
+        {
+            if (string.IsNullOrEmpty(txtSite.Text))
+            {
+                txtSite.BackColor = Color.Wheat;
+                return false;
+            }
+
+            return true;
+        }
+
+        private void txtSite_TextChanged_1(object sender, EventArgs e)
+        {
+            txtSite.BackColor = Color.White;
+        }
     }
     public class JavascriptManager : ILoadHandler, IRenderProcessMessageHandler
     {

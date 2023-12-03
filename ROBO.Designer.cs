@@ -58,9 +58,10 @@ namespace ROBOClicker
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblReportageMess = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.txtSite = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox2.SuspendLayout();
             this.grpSeoSite.SuspendLayout();
@@ -78,9 +79,9 @@ namespace ROBOClicker
             // 
             this.browser.ActivateBrowserOnCreation = false;
 // TODO: Code generation for '' failed because of Exception 'Invalid Primitive Type: System.IntPtr. Consider using CodeObjectCreateExpression.'.
-            this.browser.Location = new System.Drawing.Point(47, 636);
+            this.browser.Location = new System.Drawing.Point(537, 19);
             this.browser.Name = "browser";
-            this.browser.Size = new System.Drawing.Size(159, 58);
+            this.browser.Size = new System.Drawing.Size(261, 242);
             this.browser.TabIndex = 0;
             this.browser.LoadingStateChanged += new System.EventHandler<CefSharp.LoadingStateChangedEventArgs>(this.chromiumWebBrowser1_LoadingStateChanged);
             this.browser.IsBrowserInitializedChanged += new System.EventHandler(this.browser_IsBrowserInitializedChanged);
@@ -91,13 +92,13 @@ namespace ROBOClicker
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(181, 23);
             this.button1.TabIndex = 2;
-            this.button1.Text = "START";
+            this.button1.Text = "Start";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // prgs
             // 
-            this.prgs.Location = new System.Drawing.Point(12, 719);
+            this.prgs.Location = new System.Drawing.Point(12, 625);
             this.prgs.Name = "prgs";
             this.prgs.Size = new System.Drawing.Size(800, 23);
             this.prgs.TabIndex = 6;
@@ -339,15 +340,36 @@ namespace ROBOClicker
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblReportageMess);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.txtSite);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.browser);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Location = new System.Drawing.Point(9, 295);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(804, 324);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
+            // 
+            // lblReportageMess
+            // 
+            this.lblReportageMess.AutoSize = true;
+            this.lblReportageMess.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblReportageMess.Location = new System.Drawing.Point(436, 271);
+            this.lblReportageMess.Name = "lblReportageMess";
+            this.lblReportageMess.Size = new System.Drawing.Size(0, 13);
+            this.lblReportageMess.TabIndex = 19;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(353, 209);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(181, 23);
+            this.button3.TabIndex = 17;
+            this.button3.Text = "Save RepostageSite";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // txtSite
             // 
@@ -359,6 +381,7 @@ namespace ROBOClicker
             this.txtSite.Size = new System.Drawing.Size(437, 174);
             this.txtSite.TabIndex = 15;
             this.txtSite.Text = resources.GetString("txtSite.Text");
+            this.txtSite.TextChanged += new System.EventHandler(this.txtSite_TextChanged_1);
             // 
             // label1
             // 
@@ -369,25 +392,15 @@ namespace ROBOClicker
             this.label1.TabIndex = 14;
             this.label1.Text = "Reportage Site :";
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(353, 209);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(181, 23);
-            this.button3.TabIndex = 17;
-            this.button3.Text = "Save RepostageSite";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // ROBO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(824, 838);
+            this.ClientSize = new System.Drawing.Size(824, 661);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpSeoSite);
             this.Controls.Add(this.prgs);
-            this.Controls.Add(this.browser);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.groupBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -438,5 +451,6 @@ namespace ROBOClicker
         private System.Windows.Forms.TextBox txtSite;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label lblReportageMess;
     }
 }

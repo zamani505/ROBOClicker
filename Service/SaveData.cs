@@ -36,6 +36,21 @@ namespace ROBOClicker.Service
             }
         }
         #endregion
+        #region Reportage
+        public Reportage ReadReportageSetting()
+        {
+            var js = File.ReadAllText(Environment.CommandLine.Substring(1, Environment.CommandLine.LastIndexOf('\\')) + "rpt.dll");
+            return js.Length > 0 ? JsonConvert.DeserializeObject<Reportage>(js) : null;
+        }
+
+        public void WriteReportageSetting(Reportage reportage)
+        {
+            using (var stream = new StreamWriter(Environment.CommandLine.Substring(1, Environment.CommandLine.LastIndexOf('\\')) + "rpt.dll"))
+            {
+                stream.Write(JsonConvert.SerializeObject(reportage));
+            }
+        }
+        #endregion
 
     }
 }

@@ -71,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Reportage.cs" />
     <Compile Include="Model\Site.cs" />
     <Compile Include="Model\Vpn.cs" />
     <Compile Include="Program.cs" />
