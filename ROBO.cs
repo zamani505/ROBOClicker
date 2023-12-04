@@ -55,7 +55,7 @@ namespace ROBOClicker
         private void InitialReportageSite()
         {
             var rpt = saveData.ReadReportageSetting();
-            txtSite.Text = rpt != null ? rpt.ReportageSite : "";
+            txtSite2.Text = rpt != null ? rpt.ReportageSite : "";
         }
 
         private void InitialSite()
@@ -73,7 +73,7 @@ namespace ROBOClicker
         {
             var vpn = saveData.ReadVpnSetting();
             if (vpn == null)return;
-            lblVpnName.Text=vpn.Name;
+            lblVpnName2.Text=vpn.Name;
             txtServerIP.Text=vpn.ServerIP;
             txtUsername.Text = vpn.UserName;
             txtPassword.Text= vpn.Password;
@@ -128,7 +128,7 @@ namespace ROBOClicker
                 return;
             }
            // rdoChecked = systemkaran.Checked ? systemkaran.Name : arpce.Name;
-            urls = txtSite.Text.Split(',');
+            urls = txtSite2.Text.Split(',');
             waitTime = int.Parse(txtWaiteTime.Text);
             yourSite = txtDestinationSite.Text;
             seoText = txtSeoText.Text;
@@ -140,8 +140,8 @@ namespace ROBOClicker
 
         private void txtSite_TextChanged(object sender, EventArgs e)
         {
-            if (txtSite.Text.Length > 0)
-                txtSite.BackColor = Color.White;
+            if (txtSite2.Text.Length > 0)
+                txtSite2.BackColor = Color.White;
         }
 
         private void txtDestinationSite_TextChanged(object sender, EventArgs e)
@@ -182,7 +182,7 @@ namespace ROBOClicker
                     string vpnName = "ROBO_" + DateTime.Now.ToString("mmss");
                     lblVPNMess.Text = createConn.CreateVPN(vpnName, txtServerIP.Text);
                     btnConnectVpn.Enabled = true;
-                    lblVpnName.Text = vpnName;
+                    lblVpnName2.Text = vpnName;
                 }
             }
             catch (Exception exception)
@@ -220,7 +220,7 @@ namespace ROBOClicker
                     }
 
                     lblVPNMess.Text = "";
-                    lblVPNMess.Text = createConn.ConnectVPN(lblVpnName.Text, txtUsername.Text, txtPassword.Text);
+                    lblVPNMess.Text = createConn.ConnectVPN(lblVpnName2.Text, txtUsername.Text, txtPassword.Text);
                     SaveVpn();
                     isVpnConnected = true;
                     grpSeoSite.Enabled = true;
@@ -261,7 +261,7 @@ namespace ROBOClicker
             var vpn = new Vpn()
             {
                 ServerIP = txtServerIP.Text,UserName = txtUsername.Text,Password = txtPassword.Text,
-                Name = lblVpnName.Text
+                Name = lblVpnName2.Text
                 
             };
             saveData.WriteVpnSetting(vpn);
@@ -340,7 +340,7 @@ namespace ROBOClicker
             {
                 var rp = new Reportage
                 {
-                    ReportageSite = txtSite.Text
+                    ReportageSite = txtSite2.Text
                 };
                 saveData.WriteReportageSetting(rp);
                 lblReportageMess.Text = "Success save reportage site!";
@@ -349,9 +349,9 @@ namespace ROBOClicker
 
         private bool ValidationRepostageSite()
         {
-            if (string.IsNullOrEmpty(txtSite.Text))
+            if (string.IsNullOrEmpty(txtSite2.Text))
             {
-                txtSite.BackColor = Color.Wheat;
+                txtSite2.BackColor = Color.Wheat;
                 return false;
             }
 
@@ -360,15 +360,33 @@ namespace ROBOClicker
 
         private void txtSite_TextChanged_1(object sender, EventArgs e)
         {
-            txtSite.BackColor = Color.White;
+            txtSite2.BackColor = Color.White;
         }
 
-        private void chkWithoutVpn_CheckedChanged(object sender, EventArgs e)
+       
+
+        private void chkWithoutVpn_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs e)
         {
             if (chkWithoutVpn.Checked || Validate())
                 grpSeoSite.Enabled = true;
             else
                 grpSeoSite.Enabled = false;
+        }
+
+        private void txtWaiteTime_TextChanged_2(object sender, EventArgs e)
+        {
+            txtWaiteTime.BackColor = Color.White;
+        }
+
+        private void txtDestinationSite_TextChanged_2(object sender, EventArgs e)
+        {
+            if (txtDestinationSite.Text.Length > 0)
+                txtDestinationSite.BackColor = Color.White;
+        }
+
+        private void bunifuTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
     public class JavascriptManager : ILoadHandler, IRenderProcessMessageHandler
