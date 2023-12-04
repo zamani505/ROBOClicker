@@ -240,6 +240,8 @@
     <Content Include="bin\Debug\vk_swiftshader.dll" />
     <Content Include="bin\Debug\vulkan-1.dll" />
     <Content Include="close_window-32+.png" />
+    <Content Include="connect.png" />
+    <Content Include="create.png" />
     <Content Include="media_player.ico" />
     <Content Include="obj\Bunifu.Licensing.dll" />
     <Content Include="obj\Bunifu.UI.WinForms.dll" />
@@ -248,6 +250,8 @@
     <Content Include="obj\Debug\ROBOClicker.exe" />
     <Content Include="obj\Debug\ROBOClicker.pdb" />
     <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
+    <Content Include="save.png" />
+    <Content Include="start.png" />
     <Content Include="vpn.png" />
     <Content Include="yourWebSite.png" />
     <None Include="media_player.png" />
