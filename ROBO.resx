@@ -227,17 +227,56 @@
         MAAQwgBACAMAIQwARMJwXdd7H2Zmdu52C54sAMDXGDd+kkBFDzMVEwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="txtSite2.Text" xml:space="preserve">
-    <value>https://www.varzesh3.com,https://www.isna.ir,https://www.tabnak.ir,https://www.parsnews.com/%D8%A8%D8%AE%D8%B4-%D8%A7%D8%AE%D8%A8%D8%A7%D8%B1-2/679032-%D8%A7%D8%B1%D8%A7%D8%A6%D9%87-%DA%AF%D9%88%D8%A7%D9%87%DB%8C%D9%86%D8%A7%D9%85%D9%87-%D8%A7%DB%8C%D8%B2%D9%88,https://www.google.com/search?q=%DA%AF%D9%88%D8%A7%D9%87%DB%8C%D9%86%D8%A7%D9%85%D9%87+%D8%A7%DB%8C%D8%B2%D9%88&amp;source=hp&amp;ei=JfmNY8W9Ov6Mi-gPsaiCoAk&amp;iflsig=AJiK0e8AAAAAY44HNR-aFqJONJmA9kasaX_FuBgvTxSM&amp;ved=0ahUKEwiF5M230eL7AhV-xgIHHTGUAJQQ4dUDCAg&amp;uact=5&amp;oq=%DA%AF%D9%88%D8%A7%D9%87%DB%8C%D9%86%D8%A7%D9%85%D9%87+%D8%A7%DB%8C%D8%B2%D9%88&amp;gs_lcp=Cgdnd3Mtd2l6EAMyBwgAEIAEEBMyBwgAEIAEEBMyBwgAEIAEEBMyBwgAEIAEEBMyBwgAEIAEEBMyBwgAEIAEEBMyBwgAEIAEEBMyBwgAEIAEEBMyCAgAEBYQHhATMggIABAWEB4QE1AAWABgjw5oAHAAeACAAb8BiAG_AZIBAzAuMZgBAKABAqABAQ&amp;sclient=gws-wiz,http://tecnicsard.com/</value>
+  <data name="lblReportageMess2.BaseStylesheet" xml:space="preserve">
+    <value>#bunifu-label { padding: 0px; font-family: 'Segoe UI'; font-size: 9pt; width: 100%; height: 100%; font-style: normal; font-weight: normal; text-decoration: none; color: rgb(0, 100, 0); text-align: left; }</value>
+  </data>
+  <data name="lblReportageMess.BaseStylesheet" xml:space="preserve">
+    <value>#bunifu-label { padding: 0px; font-family: 'Segoe UI'; font-size: 9pt; width: 100%; height: 100%; font-style: normal; font-weight: normal; text-decoration: none; color: rgb(0, 100, 0); text-align: left; }</value>
+  </data>
+  <data name="bunifuButton3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAALIAAAAkCAYAAAAttWA2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACPSURBVHhe7dIxEYAwAMBAlNQy+EMGewsCMNDcDz9lzTGu
+        eY9rLdjXvL+R/wLsxcgkGJkEI5NgZBKMTIKRSTAyCUYmwcgkGJkEI5NgZBKMTIKRSTAyCUYmwcgkGJkE
+        I5NgZBKMTIKRSTAyCUYmwcgkGJkEI5NgZBKMTIKRSTAyCUYmwcgkHOOcz1+AbZzzeQFnzOTZHNp4dQAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="bunifuButton2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAALIAAAAkCAYAAAAttWA2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACPSURBVHhe7dIxEYAwAMBAlNQy+EMGewsCMNDcDz9lzTGu
+        eY9rLdjXvL+R/wLsxcgkGJkEI5NgZBKMTIKRSTAyCUYmwcgkGJkEI5NgZBKMTIKRSTAyCUYmwcgkGJkE
+        I5NgZBKMTIKRSTAyCUYmwcgkGJkEI5NgZBKMTIKRSTAyCUYmwcgkHOOcz1+AbZzzeQFnzOTZHNp4dQAA
+        AABJRU5ErkJggg==
+</value>
   </data>
   <data name="txtSite.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAQQAAAAnCAYAAADpRzYmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACmSURBVHhe7dRRCQMxAETB+FeVIzIqowJaAuHBacgM7M8K
-        eAPgZa31mXP+zOzO7QacHIyxD+BeuwEnB4IAtxMEIIIARBCACAIQQQAiCEAEAYggABEEIIIARBCACAIQ
-        QQAiCEAEAYggABEEIIIARBCACAIQQQAiCEAEAYggABEEIIIARBCACAIQQQAiCEAEAYggABEEIK8gPM/z
-        3YeZ3bndgJMDgG2MPyiB6n34dP1xAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAAdAAAACmCAYAAABqUd5oAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKwSURBVHhe7dWxDQIxAARB91+VXy6DMigAZMkJyQMbz0iX
+        XAM7AIBorfWYc77MzMzsfruZJ59j7AMA+G438+RTQAHgVwIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQ
+        CCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQ
+        CCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQ
+        CCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQ
+        CCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQ
+        CCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQ
+        CCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQ
+        CCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQ
+        CCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQ
+        CCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQ
+        CCgABAIKAIGAAkAgoAAQCCgABAIKAIGAAkAgoAAQCCgABB8Bva7ruQ8zMzO7327myScA8J8x3iDB61Iv
+        hahcAAAAAElFTkSuQmCC
 </value>
+  </data>
+  <data name="txtSite.DefaultText" xml:space="preserve">
+    <value>https://www.varzesh3.com,https://www.isna.ir,https://www.tabnak.ir,https://www.parsnews.com/%D8%A8%D8%AE%D8%B4-%D8%A7%D8%AE%D8%A8%D8%A7%D8%B1-2/679032-%D8%A7%D8%B1%D8%A7%D8%A6%D9%87-%DA%AF%D9%88%D8%A7%D9%87%DB%8C%D9%86%D8%A7%D9%85%D9%87-%D8%A7%DB%8C%D8%B2%D9%88,https://www.google.com/search?q=%DA%AF%D9%88%D8%A7%D9%87%DB%8C%D9%86%D8%A7%D9%85%D9%87+%D8%A7%DB%8C%D8%B2%D9%88&amp;source=hp&amp;ei=JfmNY8W9Ov6Mi-gPsaiCoAk&amp;iflsig=AJiK0e8AAAAAY44HNR-aFqJONJmA9kasaX_FuBgvTxSM&amp;ved=0ahUKEwiF5M230eL7AhV-xgIHHTGUAJQQ4dUDCAg&amp;uact=5&amp;oq=%DA%AF%D9%88%D8%A7%D9%87%DB%8C%D9%86%D8%A7%D9%85%D9%87+%D8%A7%DB%8C%D8%B2%D9%88&amp;gs_lcp=Cgdnd3Mtd2l6EAMyBwgAEIAEEBMyBwgAEIAEEBMyBwgAEIAEEBMyBwgAEIAEEBMyBwgAEIAEEBMyBwgAEIAEEBMyBwgAEIAEEBMyBwgAEIAEEBMyCAgAEBYQHhATMggIABAWEB4QE1AAWABgjw5oAHAAeACAAb8BiAG_AZIBAzAuMZgBAKABAqABAQ&amp;sclient=gws-wiz,http://tecnicsard.com/</value>
+  </data>
+  <data name="txtSite.Lines" xml:space="preserve">
+    <value>https://www.varzesh3.com,https://www.isna.ir,https://www.tabnak.ir,https://www.parsnews.com/%D8%A8%D8%AE%D8%B4-%D8%A7%D8%AE%D8%A8%D8%A7%D8%B1-2/679032-%D8%A7%D8%B1%D8%A7%D8%A6%D9%87-%DA%AF%D9%88%D8%A7%D9%87%DB%8C%D9%86%D8%A7%D9%85%D9%87-%D8%A7%DB%8C%D8%B2%D9%88,https://www.google.com/search?q=%DA%AF%D9%88%D8%A7%D9%87%DB%8C%D9%86%D8%A7%D9%85%D9%87+%D8%A7%DB%8C%D8%B2%D9%88&amp;source=hp&amp;ei=JfmNY8W9Ov6Mi-gPsaiCoAk&amp;iflsig=AJiK0e8AAAAAY44HNR-aFqJONJmA9kasaX_FuBgvTxSM&amp;ved=0ahUKEwiF5M230eL7AhV-xgIHHTGUAJQQ4dUDCAg&amp;uact=5&amp;oq=%DA%AF%D9%88%D8%A7%D9%87%DB%8C%D9%86%D8%A7%D9%85%D9%87+%D8%A7%DB%8C%D8%B2%D9%88&amp;gs_lcp=Cgdnd3Mtd2l6EAMyBwgAEIAEEBMyBwgAEIAEEBMyBwgAEIAEEBMyBwgAEIAEEBMyBwgAEIAEEBMyBwgAEIAEEBMyBwgAEIAEEBMyBwgAEIAEEBMyCAgAEBYQHhATMggIABAWEB4QE1AAWABgjw5oAHAAeACAAb8BiAG_AZIBAzAuMZgBAKABAqABAQ&amp;sclient=gws-wiz,http://tecnicsard.com/</value>
+  </data>
+  <data name="txtSite2.Text" xml:space="preserve">
+    <value>https://www.varzesh3.com,https://www.isna.ir,https://www.tabnak.ir,https://www.parsnews.com/%D8%A8%D8%AE%D8%B4-%D8%A7%D8%AE%D8%A8%D8%A7%D8%B1-2/679032-%D8%A7%D8%B1%D8%A7%D8%A6%D9%87-%DA%AF%D9%88%D8%A7%D9%87%DB%8C%D9%86%D8%A7%D9%85%D9%87-%D8%A7%DB%8C%D8%B2%D9%88,https://www.google.com/search?q=%DA%AF%D9%88%D8%A7%D9%87%DB%8C%D9%86%D8%A7%D9%85%D9%87+%D8%A7%DB%8C%D8%B2%D9%88&amp;source=hp&amp;ei=JfmNY8W9Ov6Mi-gPsaiCoAk&amp;iflsig=AJiK0e8AAAAAY44HNR-aFqJONJmA9kasaX_FuBgvTxSM&amp;ved=0ahUKEwiF5M230eL7AhV-xgIHHTGUAJQQ4dUDCAg&amp;uact=5&amp;oq=%DA%AF%D9%88%D8%A7%D9%87%DB%8C%D9%86%D8%A7%D9%85%D9%87+%D8%A7%DB%8C%D8%B2%D9%88&amp;gs_lcp=Cgdnd3Mtd2l6EAMyBwgAEIAEEBMyBwgAEIAEEBMyBwgAEIAEEBMyBwgAEIAEEBMyBwgAEIAEEBMyBwgAEIAEEBMyBwgAEIAEEBMyBwgAEIAEEBMyCAgAEBYQHhATMggIABAWEB4QE1AAWABgjw5oAHAAeACAAb8BiAG_AZIBAzAuMZgBAKABAqABAQ&amp;sclient=gws-wiz,http://tecnicsard.com/</value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>26</value>

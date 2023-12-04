@@ -343,7 +343,7 @@ namespace ROBOClicker
                     ReportageSite = txtSite2.Text
                 };
                 saveData.WriteReportageSetting(rp);
-                lblReportageMess.Text = "Success save reportage site!";
+                lblReportageMess2.Text = "Success save reportage site!";
             }
         }
 
@@ -385,6 +385,11 @@ namespace ROBOClicker
         }
 
         private void bunifuTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grpReportage_Enter(object sender, EventArgs e)
         {
 
         }
