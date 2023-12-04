@@ -112,6 +112,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="close_window-32+.png" />
     <Content Include="media_player.ico" />
     <Content Include="vpn.png" />
     <Content Include="yourWebSite.png" />

@@ -36,6 +36,7 @@ namespace ROBOClicker
             this.button1 = new System.Windows.Forms.Button();
             this.prgs = new System.Windows.Forms.ProgressBar();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.chkWithoutVpn = new System.Windows.Forms.CheckBox();
             this.lblVpnName = new System.Windows.Forms.Label();
             this.lblVPNMess = new System.Windows.Forms.Label();
@@ -48,6 +49,7 @@ namespace ROBOClicker
             this.txtServerIP = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.grpSeoSite = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblSiteMess = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -62,16 +64,14 @@ namespace ROBOClicker
             this.button3 = new System.Windows.Forms.Button();
             this.txtSite = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox2.SuspendLayout();
-            this.grpSeoSite.SuspendLayout();
-            this.grpReportage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.grpSeoSite.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.grpReportage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -130,6 +130,16 @@ namespace ROBOClicker
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "L2TP VPN Configuration";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::ROBOClicker.Properties.Resources.vpn;
+            this.pictureBox3.Location = new System.Drawing.Point(628, 19);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(129, 99);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 20;
+            this.pictureBox3.TabStop = false;
             // 
             // chkWithoutVpn
             // 
@@ -258,6 +268,16 @@ namespace ROBOClicker
             this.grpSeoSite.TabIndex = 7;
             this.grpSeoSite.TabStop = false;
             this.grpSeoSite.Text = "Your Site Configuration";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ROBOClicker.Properties.Resources.yourWebSite;
+            this.pictureBox1.Location = new System.Drawing.Point(628, 24);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(129, 99);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 19;
+            this.pictureBox1.TabStop = false;
             // 
             // lblSiteMess
             // 
@@ -402,19 +422,10 @@ namespace ROBOClicker
             this.label1.TabIndex = 14;
             this.label1.Text = "Reportage Site :";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ROBOClicker.Properties.Resources.yourWebSite;
-            this.pictureBox1.Location = new System.Drawing.Point(628, 24);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(129, 99);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 19;
-            this.pictureBox1.TabStop = false;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = global::ROBOClicker.Properties.Resources.close_window_32_;
             this.pictureBox2.Location = new System.Drawing.Point(798, 1);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(22, 21);
@@ -422,16 +433,6 @@ namespace ROBOClicker
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::ROBOClicker.Properties.Resources.vpn;
-            this.pictureBox3.Location = new System.Drawing.Point(628, 19);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(129, 99);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 20;
-            this.pictureBox3.TabStop = false;
             // 
             // ROBO
             // 
@@ -452,13 +453,13 @@ namespace ROBOClicker
             this.Load += new System.EventHandler(this.ROBO_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.grpSeoSite.ResumeLayout(false);
             this.grpSeoSite.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.grpReportage.ResumeLayout(false);
             this.grpReportage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
