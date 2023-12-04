@@ -97,6 +97,9 @@
     </Compile>
     <Compile Include="Service\CreateConnection.cs" />
     <Compile Include="Service\SaveData.cs" />
+    <EmbeddedResource Include="BuForm.resx">
+      <DependentUpon>BuForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\ROBOClicker.Properties.Resources.resources" />
     <EmbeddedResource Include="obj\Debug\ROBOClicker.ROBO.resources" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -74,9 +74,9 @@ namespace ROBOClicker
             var vpn = saveData.ReadVpnSetting();
             if (vpn == null)return;
             lblVpnName.Text=vpn.Name;
-            txtServerIP.Text=vpn.ServerIP;
-            txtUsername.Text = vpn.UserName;
-            txtPassword.Text= vpn.Password;
+            txtServerIP2.Text=vpn.ServerIP;
+            txtUsername2.Text = vpn.UserName;
+            txtPassword2.Text= vpn.Password;
             grpSeoSite.Enabled = true;
         }
 
@@ -122,7 +122,7 @@ namespace ROBOClicker
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!isVpnConnected && !chkWithoutVpn.Checked)
+            if (!isVpnConnected && !chkWithoutVpn2.Checked)
             {
                 MessageBox.Show("Please connect vpn!");
                 return;
@@ -173,15 +173,15 @@ namespace ROBOClicker
             {
                 if (Validate())
                 {
-                    if (!ValidateIPv4(txtServerIP.Text))
+                    if (!ValidateIPv4(txtServerIP2.Text))
                     {
                         MessageBox.Show("IP not valid!");
                         return;
                     }
 
                     string vpnName = "ROBO_" + DateTime.Now.ToString("mmss");
-                    lblVPNMess.Text = createConn.CreateVPN(vpnName, txtServerIP.Text);
-                    btnConnectVpn.Enabled = true;
+                    lblVPNMess.Text = createConn.CreateVPN(vpnName, txtServerIP2.Text);
+                    btnConnectVpn2.Enabled = true;
                     lblVpnName.Text = vpnName;
                 }
             }
@@ -213,14 +213,14 @@ namespace ROBOClicker
             {
                 if (Validate())
                 {
-                    if (!ValidateIPv4(txtServerIP.Text))
+                    if (!ValidateIPv4(txtServerIP2.Text))
                     {
                         MessageBox.Show("IP not valid!");
                         return;
                     }
 
                     lblVPNMess.Text = "";
-                    lblVPNMess.Text = createConn.ConnectVPN(lblVpnName.Text, txtUsername.Text, txtPassword.Text);
+                    lblVPNMess.Text = createConn.ConnectVPN(lblVpnName.Text, txtUsername2.Text, txtPassword2.Text);
                     SaveVpn();
                     isVpnConnected = true;
                     grpSeoSite.Enabled = true;
@@ -238,19 +238,19 @@ namespace ROBOClicker
         private bool Validate()
         {
             var validate = true;
-            if (string.IsNullOrEmpty(txtServerIP.Text))
+            if (string.IsNullOrEmpty(txtServerIP2.Text))
             {
-                txtServerIP.BackColor = Color.Wheat;
+                txtServerIP2.BackColor = Color.Wheat;
                 validate = false;
             }
-            if (string.IsNullOrEmpty(txtUsername.Text))
+            if (string.IsNullOrEmpty(txtUsername2.Text))
             {
-                txtUsername.BackColor = Color.Wheat;
+                txtUsername2.BackColor = Color.Wheat;
                 validate = false;
             }
-            if (string.IsNullOrEmpty(txtPassword.Text))
+            if (string.IsNullOrEmpty(txtPassword2.Text))
             {
-                txtPassword.BackColor = Color.Wheat;
+                txtPassword2.BackColor = Color.Wheat;
                 validate = false;
             }
             return validate;
@@ -260,7 +260,7 @@ namespace ROBOClicker
         {
             var vpn = new Vpn()
             {
-                ServerIP = txtServerIP.Text,UserName = txtUsername.Text,Password = txtPassword.Text,
+                ServerIP = txtServerIP2.Text,UserName = txtUsername2.Text,Password = txtPassword2.Text,
                 Name = lblVpnName.Text
                 
             };
@@ -269,17 +269,17 @@ namespace ROBOClicker
 
         private void txtServerIP_TextChanged(object sender, EventArgs e)
         {
-            txtServerIP.BackColor=Color.White;
+            txtServerIP2.BackColor=Color.White;
         }
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
-            txtUsername.BackColor = Color.White;
+            txtUsername2.BackColor = Color.White;
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
-            txtPassword.BackColor = Color.White;
+            txtPassword2.BackColor = Color.White;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -365,7 +365,7 @@ namespace ROBOClicker
 
         private void chkWithoutVpn_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkWithoutVpn.Checked || Validate())
+            if (chkWithoutVpn2.Checked || Validate())
                 grpSeoSite.Enabled = true;
             else
                 grpSeoSite.Enabled = false;
