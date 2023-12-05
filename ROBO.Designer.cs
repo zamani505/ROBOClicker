@@ -1060,7 +1060,7 @@ namespace ROBOClicker
             this.bunifuPictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.bunifuPictureBox2.AutoSizeHeight = true;
             this.bunifuPictureBox2.BorderRadius = 35;
-            this.bunifuPictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("bunifuPictureBox2.Image")));
+            this.bunifuPictureBox2.Image = global::ROBOClicker.Properties.Resources.media_player;
             this.bunifuPictureBox2.IsCircle = true;
             this.bunifuPictureBox2.Location = new System.Drawing.Point(27, 190);
             this.bunifuPictureBox2.Name = "bunifuPictureBox2";
@@ -1385,7 +1385,7 @@ namespace ROBOClicker
             this.bunifuPictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuPictureBox1.BorderRadius = 0;
             this.bunifuPictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuPictureBox1.Image")));
+            this.bunifuPictureBox1.Image = global::ROBOClicker.Properties.Resources.close_window_32_;
             this.bunifuPictureBox1.IsCircle = true;
             this.bunifuPictureBox1.Location = new System.Drawing.Point(667, 0);
             this.bunifuPictureBox1.Name = "bunifuPictureBox1";
@@ -1401,6 +1401,7 @@ namespace ROBOClicker
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackgroundImage = global::ROBOClicker.Properties.Resources.back1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(698, 693);
             this.Controls.Add(this.prgs);
