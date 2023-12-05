@@ -6,6 +6,8 @@ namespace ROBOClicker.Service
 {
     public class CreateConnection
     {
+        public static RasDialer _Dialer = new RasDialer();
+
         public string CreateVPN(string name, string destination)
         {
             try
@@ -15,7 +17,9 @@ namespace ROBOClicker.Service
                 RasVpnStrategy strategy = RasVpnStrategy.L2tpOnly;  // Set your strategy here
                 RasEntry VPNEntry = RasEntry.CreateVpnEntry(name, destination, strategy,
                     DotRas.RasDevice.Create(name, DotRas.RasDeviceType.Vpn));
+                
                 PhoneBook.Entries.Add(VPNEntry);
+                _Dialer = new RasDialer();
             }
             catch (Exception ex)
             {
@@ -30,12 +34,11 @@ namespace ROBOClicker.Service
             {
                 RasPhoneBook PhoneBook = new RasPhoneBook();
                 PhoneBook.Open();
-
-                RasDialer dialer = new RasDialer();
-                dialer.EntryName = name;
-                dialer.PhoneBookPath = PhoneBook.Path;
-                dialer.Credentials = new NetworkCredential(userName, pwd);
-                dialer.Dial();
+                _Dialer.EntryName = name;
+                _Dialer.PhoneBookPath = PhoneBook.Path;
+                _Dialer.Credentials = new NetworkCredential(userName, pwd);
+                _Dialer.DialAsync();
+                
                 FixReg();
             }
             catch (Exception ex)
@@ -44,6 +47,23 @@ namespace ROBOClicker.Service
             }
 
             return "Connect to VPN Success!";
+
+
+        }
+        public string DisconnectVPN()
+        {
+            try
+            {
+                _Dialer.DialAsyncCancel();
+                _Dialer.Dispose();
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return "Disconnect to VPN Success!";
 
 
         }

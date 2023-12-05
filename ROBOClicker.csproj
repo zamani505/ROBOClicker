@@ -83,6 +83,7 @@
     <Compile Include="BuForm.Designer.cs">
       <DependentUpon>BuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Enums.cs" />
     <Compile Include="Model\Reportage.cs" />
     <Compile Include="Model\Site.cs" />
     <Compile Include="Model\Vpn.cs" />
@@ -96,6 +97,7 @@
       <DependentUpon>ROBO.cs</DependentUpon>
     </Compile>
     <Compile Include="Service\CreateConnection.cs" />
+    <Compile Include="Service\IPCatchService.cs" />
     <Compile Include="Service\SaveData.cs" />
     <EmbeddedResource Include="BuForm.resx">
       <DependentUpon>BuForm.cs</DependentUpon>

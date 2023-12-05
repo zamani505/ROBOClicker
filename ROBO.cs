@@ -7,6 +7,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -30,8 +32,9 @@ namespace ROBOClicker
         public static int progressValue = 0;
         public static string seoText = "";
         public static string rdoChecked = "";
-        CreateConnection createConn = new CreateConnection();
-        SaveData saveData = new SaveData();
+        CreateConnection _createConn = new CreateConnection();
+        SaveData _saveData = new SaveData();
+        IPCatchService _ipCatchService = new IPCatchService();
         public bool isVpnConnected = false;
         public async Task InitBrowser()
         {
@@ -46,6 +49,7 @@ namespace ROBOClicker
 
         private void ROBO_Load(object sender, EventArgs e)
         {
+            IPCatchService.IpCatch = new List<string>();
             InitialVPN();
             InitialSite();
             InitialReportageSite();
@@ -54,13 +58,13 @@ namespace ROBOClicker
 
         private void InitialReportageSite()
         {
-            var rpt = saveData.ReadReportageSetting();
+            var rpt = _saveData.ReadReportageSetting();
             txtSite.Text = rpt != null ? rpt.ReportageSite : "";
         }
 
         private void InitialSite()
         {
-            var site = saveData.ReadSiteSetting();
+            var site = _saveData.ReadSiteSetting();
             if (site == null) return;
             foreach (var url in site.Urls)
                 txtDestinationSite.Text += (url + Environment.NewLine);
@@ -71,7 +75,7 @@ namespace ROBOClicker
 
         private void InitialVPN()
         {
-            var vpn = saveData.ReadVpnSetting();
+            var vpn = _saveData.ReadVpnSetting();
             if (vpn == null) return;
             lblVpnName2.Text = vpn.Name;
             txtServerIP.Text = vpn.ServerIP;
@@ -117,6 +121,49 @@ namespace ROBOClicker
         private void browser_IsBrowserInitializedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private string GetMyIP()
+        {
+            var externalIpString = (new HttpClient().GetStringAsync("http://icanhazip.com").Result)
+                .Replace("\\r\\n", "").Replace("\\n", "").Trim();
+            IPAddress.TryParse(externalIpString, out var ipAddress);
+            if (ipAddress != null) return ipAddress.ToString();
+
+            string hostName = Dns.GetHostName();
+            string IP = Dns.GetHostByName(hostName).AddressList[0].ToString();
+            return IP;
+        }
+
+        private void ReConnect()
+        {
+            _createConn.DisconnectVPN();
+            _createConn.ConnectVPN(lblVpnName2.Text, txtUsername.Text, txtPassword.Text);
+        }
+        private bool TryChangeIP()
+        {
+            try
+            {
+                ReConnect();
+                var tryCount = 5;
+                var counter = 0;
+                while (counter < tryCount)
+                {
+                    if (_ipCatchService.Exist(GetMyIP()))
+                        ReConnect();
+                    else
+                    {
+                        _ipCatchService.Add(GetMyIP());
+                        return true;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("متاسفانه مشکلی بوجود آمده است" + Environment.NewLine + e.Message);
+
+            }
+            return false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -180,7 +227,7 @@ namespace ROBOClicker
                     }
 
                     string vpnName = "ROBO_" + DateTime.Now.ToString("mmss");
-                    lblVPNMess.Text = createConn.CreateVPN(vpnName, txtServerIP.Text);
+                    lblVPNMess.Text = _createConn.CreateVPN(vpnName, txtServerIP.Text);
                     btnConnectVpn.Enabled = true;
                     lblVpnName2.Text = vpnName;
                 }
@@ -220,7 +267,8 @@ namespace ROBOClicker
                     }
 
                     lblVPNMess.Text = "";
-                    lblVPNMess.Text = createConn.ConnectVPN(lblVpnName2.Text, txtUsername.Text, txtPassword.Text);
+                    lblVPNMess.Text = _createConn.ConnectVPN(lblVpnName2.Text, txtUsername.Text, txtPassword.Text);
+
                     SaveVpn();
                     isVpnConnected = true;
                     grpSeoSite.Enabled = true;
@@ -266,7 +314,7 @@ namespace ROBOClicker
                 Name = lblVpnName2.Text
 
             };
-            saveData.WriteVpnSetting(vpn);
+            _saveData.WriteVpnSetting(vpn);
         }
 
         private void txtServerIP_TextChanged(object sender, EventArgs e)
@@ -294,7 +342,7 @@ namespace ROBOClicker
                     SeoText = txtSeoText.Text,
                     WaitTime = int.Parse(txtWaiteTime.Text)
                 };
-                saveData.WriteSiteSetting(site);
+                _saveData.WriteSiteSetting(site);
                 lblSiteMess.Text = "Your setting is set!";
                 grpReportage.Enabled = true;
             }
@@ -344,7 +392,7 @@ namespace ROBOClicker
                 {
                     ReportageSite = txtSite.Text
                 };
-                saveData.WriteReportageSetting(rp);
+                _saveData.WriteReportageSetting(rp);
                 lblReportageMess.Text = "Success save reportage site!";
             }
         }
