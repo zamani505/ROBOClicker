@@ -16,9 +16,6 @@ using System.Windows.Forms;
 using ROBOClicker.Model;
 using ROBOClicker.Service;
 
-//using CefSharp;
-//using CefSharp.WinForms;
-
 namespace ROBOClicker
 {
     public partial class ROBO : Form
@@ -33,7 +30,8 @@ namespace ROBOClicker
         public static int progressValue = 0;
         public static string seoText = "";
         public static string rdoChecked = "";
-        public static RoboSetting _RoboSetting;
+        public static byte reportageCounter = 0;
+        public static RoboSetting _roboSetting;
         CreateConnection _createConn = new CreateConnection();
         SaveData _saveData = new SaveData();
         IPCatchService _ipCatchService = new IPCatchService();
@@ -69,7 +67,7 @@ namespace ROBOClicker
                 Application.Exit();
             }
 
-            _RoboSetting = roboSetting;
+            _roboSetting = roboSetting;
         }
 
         private void InitialReportageSite()
@@ -119,17 +117,36 @@ namespace ROBOClicker
         {
             if (JavascriptManager.loadUrl_Finishid)
             {
-                JavascriptManager.loadUrl_Finishid = false;
-                prgs.Value = 100;
-                bunifuButton3.Enabled = true;
-                // MessageBox.Show(ssssss);
-                MessageBox.Show("Operation is done!");
+                prgs.Value += 5;
+                if (reportageCounter < _roboSetting.TryReportage)
+                {
+                    JavascriptManager.loadUrl_Finishid = false;
+                    jsmanager = null;
+                    var tryIpChange = TryChangeIP();
+                    switch (tryIpChange)
+                    {
+                        case Enums.VpnState.CanNotConnect:
+                            break;
+                        case Enums.VpnState.Connected:
+                            StartReportage();
+                            break;
+                        case Enums.VpnState.Error:
+                            break;
+                    }
+                }
+                else
+                {
+                    prgs.Value = 100;
 
+                }
             }
             else
-                prgs.Value = progressValue > 100 && !JavascriptManager.loadUrl_Finishid ? 95 : progressValue;
+            {
+             //   prgs.Value = progressValue > 100 && !JavascriptManager.loadUrl_Finishid ? 95 : progressValue;
+            }
 
-
+            //bunifuButton3.Enabled = true;
+            //MessageBox.Show("Operation is done!");
 
 
         }
@@ -162,7 +179,7 @@ namespace ROBOClicker
             {
                 ReConnect();
                 var counter = 0;
-                while (counter < _RoboSetting.TryConnect)
+                while (counter < _roboSetting.TryConnect)
                 {
                     if (_ipCatchService.Exist(GetMyIP()))
                         ReConnect();
@@ -194,14 +211,12 @@ namespace ROBOClicker
                 prgs.Value = 0;
                 prgs.Visible = true;
                 bunifuButton3.Enabled = false;
-                
                 jsmanager = new JavascriptManager(browser);
             }
             catch (Exception e)
             {
                 progressValue = 0;
                 prgs.Value = 0;
-                
                 bunifuButton3.Enabled = true;
                 MessageBox.Show("متاسفانه مشکلی بوجود آمده است" + Environment.NewLine + e.Message);
             }
