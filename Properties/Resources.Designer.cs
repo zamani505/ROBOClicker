@@ -63,6 +63,16 @@ namespace ROBOClicker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Background {
+            get {
+                object obj = ResourceManager.GetObject("Background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap close_window_32_ {
             get {
                 object obj = ResourceManager.GetObject("close_window-32+", resourceCulture);
@@ -96,6 +106,16 @@ namespace ROBOClicker.Properties {
         internal static System.Drawing.Bitmap media_player {
             get {
                 object obj = ResourceManager.GetObject("media_player", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap media_player1 {
+            get {
+                object obj = ResourceManager.GetObject("media_player1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

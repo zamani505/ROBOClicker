@@ -55,15 +55,15 @@ namespace ROBOClicker
         private void InitialReportageSite()
         {
             var rpt = saveData.ReadReportageSetting();
-            txtSite2.Text = rpt != null ? rpt.ReportageSite : "";
+            txtSite.Text = rpt != null ? rpt.ReportageSite : "";
         }
 
         private void InitialSite()
         {
             var site = saveData.ReadSiteSetting();
-            if(site==null)return;
+            if (site == null) return;
             foreach (var url in site.Urls)
-                txtDestinationSite.Text +=( url + Environment.NewLine);
+                txtDestinationSite.Text += (url + Environment.NewLine);
             txtWaiteTime.Text = site.WaitTime.ToString();
             txtSeoText.Text = site.SeoText;
             grpReportage.Enabled = true;
@@ -72,11 +72,11 @@ namespace ROBOClicker
         private void InitialVPN()
         {
             var vpn = saveData.ReadVpnSetting();
-            if (vpn == null)return;
-            lblVpnName2.Text=vpn.Name;
-            txtServerIP.Text=vpn.ServerIP;
+            if (vpn == null) return;
+            lblVpnName2.Text = vpn.Name;
+            txtServerIP.Text = vpn.ServerIP;
             txtUsername.Text = vpn.UserName;
-            txtPassword.Text= vpn.Password;
+            txtPassword.Text = vpn.Password;
             grpSeoSite.Enabled = true;
         }
 
@@ -101,14 +101,13 @@ namespace ROBOClicker
             {
                 JavascriptManager.loadUrl_Finishid = false;
                 prgs.Value = 100;
-                button1.Enabled = true;
+                bunifuButton3.Enabled = true;
                 // MessageBox.Show(ssssss);
                 MessageBox.Show("Operation is done!");
 
             }
             else
                 prgs.Value = progressValue > 100 && !JavascriptManager.loadUrl_Finishid ? 95 : progressValue;
-
 
 
 
@@ -127,21 +126,22 @@ namespace ROBOClicker
                 MessageBox.Show("Please connect vpn!");
                 return;
             }
-           // rdoChecked = systemkaran.Checked ? systemkaran.Name : arpce.Name;
-            urls = txtSite2.Text.Split(',');
+            // rdoChecked = systemkaran.Checked ? systemkaran.Name : arpce.Name;
+            urls = txtSite.Text.Split(',');
             waitTime = int.Parse(txtWaiteTime.Text);
             yourSite = txtDestinationSite.Text;
             seoText = txtSeoText.Text;
             progressValue = 0;
             prgs.Value = 0;
-            button1.Enabled = false;
+            prgs.Visible = true;
+            bunifuButton3.Enabled = false;
             jsmanager = new JavascriptManager(browser);
         }
 
         private void txtSite_TextChanged(object sender, EventArgs e)
         {
-            if (txtSite2.Text.Length > 0)
-                txtSite2.BackColor = Color.White;
+            if (txtSite.Text.Length > 0)
+                txtSite.BackColor = Color.White;
         }
 
         private void txtDestinationSite_TextChanged(object sender, EventArgs e)
@@ -232,7 +232,7 @@ namespace ROBOClicker
                 isVpnConnected = false;
                 MessageBox.Show("متاسفانه مشکلی بوجود آمده است" + Environment.NewLine + exception.Message);
             }
-            
+
         }
 
         private bool Validate()
@@ -260,16 +260,18 @@ namespace ROBOClicker
         {
             var vpn = new Vpn()
             {
-                ServerIP = txtServerIP.Text,UserName = txtUsername.Text,Password = txtPassword.Text,
+                ServerIP = txtServerIP.Text,
+                UserName = txtUsername.Text,
+                Password = txtPassword.Text,
                 Name = lblVpnName2.Text
-                
+
             };
             saveData.WriteVpnSetting(vpn);
         }
 
         private void txtServerIP_TextChanged(object sender, EventArgs e)
         {
-            txtServerIP.BackColor=Color.White;
+            txtServerIP.BackColor = Color.White;
         }
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
@@ -288,7 +290,7 @@ namespace ROBOClicker
             {
                 var site = new Site
                 {
-                    Urls = txtDestinationSite.Text.Split(new []{Environment.NewLine},StringSplitOptions.None),
+                    Urls = txtDestinationSite.Text.Split(new[] { Environment.NewLine }, StringSplitOptions.None),
                     SeoText = txtSeoText.Text,
                     WaitTime = int.Parse(txtWaiteTime.Text)
                 };
@@ -303,7 +305,7 @@ namespace ROBOClicker
 
             if (string.IsNullOrEmpty(txtDestinationSite.Text))
             {
-                txtDestinationSite.BackColor=Color.Wheat;
+                txtDestinationSite.BackColor = Color.Wheat;
                 return false;
             }
             if (string.IsNullOrEmpty(txtWaiteTime.Text))
@@ -340,18 +342,18 @@ namespace ROBOClicker
             {
                 var rp = new Reportage
                 {
-                    ReportageSite = txtSite2.Text
+                    ReportageSite = txtSite.Text
                 };
                 saveData.WriteReportageSetting(rp);
-                lblReportageMess2.Text = "Success save reportage site!";
+                lblReportageMess.Text = "Success save reportage site!";
             }
         }
 
         private bool ValidationRepostageSite()
         {
-            if (string.IsNullOrEmpty(txtSite2.Text))
+            if (string.IsNullOrEmpty(txtSite.Text))
             {
-                txtSite2.BackColor = Color.Wheat;
+                txtSite.BackColor = Color.Wheat;
                 return false;
             }
 
@@ -360,10 +362,10 @@ namespace ROBOClicker
 
         private void txtSite_TextChanged_1(object sender, EventArgs e)
         {
-            txtSite2.BackColor = Color.White;
+            txtSite.BackColor = Color.White;
         }
 
-       
+
 
         private void chkWithoutVpn_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs e)
         {
@@ -390,6 +392,16 @@ namespace ROBOClicker
         }
 
         private void grpReportage_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuPictureBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
         {
 
         }
