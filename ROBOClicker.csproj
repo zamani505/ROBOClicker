@@ -202,7 +202,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Background.jpg" />
+    <Content Include="back2.jpg" />
     <Content Include="bin\Debug\Bunifu.Licensing.dll" />
     <Content Include="bin\Debug\Bunifu.UI.WinForms.dll" />
     <Content Include="bin\Debug\Bunifu.UI.WinForms.xml" />
@@ -251,6 +251,8 @@
     <Content Include="obj\Debug\ROBOClicker.exe" />
     <Content Include="obj\Debug\ROBOClicker.pdb" />
     <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
+    <None Include="Resources\back2.jpg" />
+    <None Include="Resources\back1.jpg" />
     <Content Include="save.png" />
     <Content Include="start.png" />
     <Content Include="vpn.png" />
