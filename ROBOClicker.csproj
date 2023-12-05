@@ -85,6 +85,7 @@
     </Compile>
     <Compile Include="Model\Enums.cs" />
     <Compile Include="Model\Reportage.cs" />
+    <Compile Include="Model\RoboSetting.cs" />
     <Compile Include="Model\Site.cs" />
     <Compile Include="Model\Vpn.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />

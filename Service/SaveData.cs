@@ -51,6 +51,21 @@ namespace ROBOClicker.Service
             }
         }
         #endregion
+        #region RoboSetting
+        public RoboSetting ReadRoboSetting()
+        {
+            var js = File.ReadAllText(Environment.CommandLine.Substring(1, Environment.CommandLine.LastIndexOf('\\')) + "robo.dll");
+            return js.Length > 0 ? JsonConvert.DeserializeObject<RoboSetting>(js) : null;
+        }
+
+        public void WriteReportageSetting(RoboSetting roboSetting)
+        {
+            using (var stream = new StreamWriter(Environment.CommandLine.Substring(1, Environment.CommandLine.LastIndexOf('\\')) + "robo.dll"))
+            {
+                stream.Write(JsonConvert.SerializeObject(roboSetting));
+            }
+        }
+        #endregion
 
     }
 }

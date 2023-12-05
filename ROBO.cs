@@ -140,7 +140,7 @@ namespace ROBOClicker
             _createConn.DisconnectVPN();
             _createConn.ConnectVPN(lblVpnName2.Text, txtUsername.Text, txtPassword.Text);
         }
-        private bool TryChangeIP()
+        private Enums.VpnState TryChangeIP()
         {
             try
             {
@@ -154,16 +154,41 @@ namespace ROBOClicker
                     else
                     {
                         _ipCatchService.Add(GetMyIP());
-                        return true;
+                        return Enums.VpnState.Connected;
                     }
                 }
             }
             catch (Exception e)
             {
-                MessageBox.Show("متاسفانه مشکلی بوجود آمده است" + Environment.NewLine + e.Message);
 
+                MessageBox.Show("متاسفانه مشکلی بوجود آمده است" + Environment.NewLine + e.Message);
+                return Enums.VpnState.Error;
             }
-            return false;
+            return Enums.VpnState.CanNotConnect;
+        }
+
+        private void StartReportage()
+        {
+            try
+            {
+                urls = txtSite.Text.Split(',');
+                waitTime = int.Parse(txtWaiteTime.Text);
+                yourSite = txtDestinationSite.Text;
+                seoText = txtSeoText.Text;
+                progressValue = 0;
+                prgs.Value = 0;
+                prgs.Visible = true;
+                bunifuButton3.Enabled = false;
+                jsmanager = new JavascriptManager(browser);
+            }
+            catch (Exception e)
+            {
+                progressValue = 0;
+                prgs.Value = 0;
+                
+                bunifuButton3.Enabled = true;
+                MessageBox.Show("متاسفانه مشکلی بوجود آمده است" + Environment.NewLine + e.Message);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -173,16 +198,11 @@ namespace ROBOClicker
                 MessageBox.Show("Please connect vpn!");
                 return;
             }
+
+
+
             // rdoChecked = systemkaran.Checked ? systemkaran.Name : arpce.Name;
-            urls = txtSite.Text.Split(',');
-            waitTime = int.Parse(txtWaiteTime.Text);
-            yourSite = txtDestinationSite.Text;
-            seoText = txtSeoText.Text;
-            progressValue = 0;
-            prgs.Value = 0;
-            prgs.Visible = true;
-            bunifuButton3.Enabled = false;
-            jsmanager = new JavascriptManager(browser);
+           
         }
 
         private void txtSite_TextChanged(object sender, EventArgs e)
@@ -412,9 +432,6 @@ namespace ROBOClicker
         {
             txtSite.BackColor = Color.White;
         }
-
-
-
         private void chkWithoutVpn_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs e)
         {
             if (chkWithoutVpn.Checked || Validate())
