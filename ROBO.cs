@@ -24,6 +24,7 @@ namespace ROBOClicker
     public partial class ROBO : Form
     {
         // public ChromiumWebBrowser browser;
+        #region Params
         JavascriptManager jsmanager;
         public static string menu = "";
         public static string[] urls;
@@ -32,10 +33,12 @@ namespace ROBOClicker
         public static int progressValue = 0;
         public static string seoText = "";
         public static string rdoChecked = "";
+        public static RoboSetting _RoboSetting;
         CreateConnection _createConn = new CreateConnection();
         SaveData _saveData = new SaveData();
         IPCatchService _ipCatchService = new IPCatchService();
         public bool isVpnConnected = false;
+        #endregion
         public async Task InitBrowser()
         {
 
@@ -50,10 +53,23 @@ namespace ROBOClicker
         private void ROBO_Load(object sender, EventArgs e)
         {
             IPCatchService.IpCatch = new List<string>();
+            InitialRoboSetting();
             InitialVPN();
             InitialSite();
             InitialReportageSite();
             InitBrowser().GetAwaiter();
+        }
+
+        private void InitialRoboSetting()
+        {
+            var roboSetting = _saveData.ReadRoboSetting();
+            if (roboSetting == null)
+            {
+                MessageBox.Show("امکان اجرا وجود ندارد");
+                Application.Exit();
+            }
+
+            _RoboSetting = roboSetting;
         }
 
         private void InitialReportageSite()
@@ -145,9 +161,8 @@ namespace ROBOClicker
             try
             {
                 ReConnect();
-                var tryCount = 5;
                 var counter = 0;
-                while (counter < tryCount)
+                while (counter < _RoboSetting.TryConnect)
                 {
                     if (_ipCatchService.Exist(GetMyIP()))
                         ReConnect();
@@ -179,6 +194,7 @@ namespace ROBOClicker
                 prgs.Value = 0;
                 prgs.Visible = true;
                 bunifuButton3.Enabled = false;
+                
                 jsmanager = new JavascriptManager(browser);
             }
             catch (Exception e)
@@ -198,11 +214,12 @@ namespace ROBOClicker
                 MessageBox.Show("Please connect vpn!");
                 return;
             }
-
+            timer1.Enabled = true;
+            StartReportage();
 
 
             // rdoChecked = systemkaran.Checked ? systemkaran.Name : arpce.Name;
-           
+
         }
 
         private void txtSite_TextChanged(object sender, EventArgs e)
