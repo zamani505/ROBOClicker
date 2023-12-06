@@ -81,6 +81,8 @@ namespace ROBOClicker
             this.lblVPNMess = new System.Windows.Forms.Label();
             this.txtUsername = new Bunifu.UI.WinForms.BunifuTextBox();
             this.grpSeoSite = new System.Windows.Forms.GroupBox();
+            this.lblFileName = new Bunifu.UI.WinForms.BunifuLabel();
+            this.imgDeleteFile = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.btnAddScript = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuButton1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.lblSiteMess = new Bunifu.UI.WinForms.BunifuLabel();
@@ -95,11 +97,12 @@ namespace ROBOClicker
             this.bunifuButton3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuButton2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.txtSite = new Bunifu.UI.WinForms.BunifuTextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.prgs = new Bunifu.UI.WinForms.BunifuProgressBar();
             this.bunifuPictureBox1 = new Bunifu.UI.WinForms.BunifuPictureBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox2.SuspendLayout();
             this.grpSeoSite.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgDeleteFile)).BeginInit();
             this.grpReportage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).BeginInit();
@@ -235,7 +238,7 @@ namespace ROBOClicker
             this.btnCreatVpn.ButtonTextMarginLeft = 0;
             this.btnCreatVpn.ColorContrastOnClick = 45;
             this.btnCreatVpn.ColorContrastOnHover = 45;
-            this.btnCreatVpn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnCreatVpn.Cursor = System.Windows.Forms.Cursors.Hand;
             borderEdges1.BottomLeft = true;
             borderEdges1.BottomRight = true;
             borderEdges1.TopLeft = true;
@@ -336,7 +339,7 @@ namespace ROBOClicker
             this.btnConnectVpn.ButtonTextMarginLeft = 0;
             this.btnConnectVpn.ColorContrastOnClick = 45;
             this.btnConnectVpn.ColorContrastOnHover = 45;
-            this.btnConnectVpn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnConnectVpn.Cursor = System.Windows.Forms.Cursors.Hand;
             borderEdges2.BottomLeft = true;
             borderEdges2.BottomRight = true;
             borderEdges2.TopLeft = true;
@@ -442,7 +445,7 @@ namespace ROBOClicker
             this.chkWithoutVpn.BorderRadius = 12;
             this.chkWithoutVpn.Checked = false;
             this.chkWithoutVpn.CheckState = Bunifu.UI.WinForms.BunifuCheckBox.CheckStates.Unchecked;
-            this.chkWithoutVpn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.chkWithoutVpn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chkWithoutVpn.CustomCheckmarkImage = null;
             this.chkWithoutVpn.Location = new System.Drawing.Point(239, 95);
             this.chkWithoutVpn.MinimumSize = new System.Drawing.Size(17, 17);
@@ -649,6 +652,8 @@ namespace ROBOClicker
             // grpSeoSite
             // 
             this.grpSeoSite.BackColor = System.Drawing.Color.Transparent;
+            this.grpSeoSite.Controls.Add(this.lblFileName);
+            this.grpSeoSite.Controls.Add(this.imgDeleteFile);
             this.grpSeoSite.Controls.Add(this.btnAddScript);
             this.grpSeoSite.Controls.Add(this.bunifuButton1);
             this.grpSeoSite.Controls.Add(this.lblSiteMess);
@@ -664,6 +669,42 @@ namespace ROBOClicker
             this.grpSeoSite.TabIndex = 7;
             this.grpSeoSite.TabStop = false;
             this.grpSeoSite.Text = "Your Site Configuration";
+            // 
+            // lblFileName
+            // 
+            this.lblFileName.AllowParentOverrides = false;
+            this.lblFileName.AutoEllipsis = false;
+            this.lblFileName.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblFileName.CursorType = System.Windows.Forms.Cursors.Default;
+            this.lblFileName.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lblFileName.Location = new System.Drawing.Point(504, 25);
+            this.lblFileName.Name = "lblFileName";
+            this.lblFileName.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblFileName.Size = new System.Drawing.Size(60, 21);
+            this.lblFileName.TabIndex = 36;
+            this.lblFileName.Text = "filename";
+            this.lblFileName.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lblFileName.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            this.lblFileName.Visible = false;
+            // 
+            // imgDeleteFile
+            // 
+            this.imgDeleteFile.AllowFocused = false;
+            this.imgDeleteFile.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgDeleteFile.AutoSizeHeight = true;
+            this.imgDeleteFile.BorderRadius = 6;
+            this.imgDeleteFile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.imgDeleteFile.Image = global::ROBOClicker.Properties.Resources.delete;
+            this.imgDeleteFile.IsCircle = true;
+            this.imgDeleteFile.Location = new System.Drawing.Point(484, 28);
+            this.imgDeleteFile.Name = "imgDeleteFile";
+            this.imgDeleteFile.Size = new System.Drawing.Size(18, 18);
+            this.imgDeleteFile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgDeleteFile.TabIndex = 35;
+            this.imgDeleteFile.TabStop = false;
+            this.imgDeleteFile.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
+            this.imgDeleteFile.Visible = false;
+            this.imgDeleteFile.Click += new System.EventHandler(this.imgDeleteFile_Click);
             // 
             // btnAddScript
             // 
@@ -683,7 +724,7 @@ namespace ROBOClicker
             this.btnAddScript.ButtonTextMarginLeft = 0;
             this.btnAddScript.ColorContrastOnClick = 45;
             this.btnAddScript.ColorContrastOnHover = 45;
-            this.btnAddScript.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnAddScript.Cursor = System.Windows.Forms.Cursors.Hand;
             borderEdges3.BottomLeft = true;
             borderEdges3.BottomRight = true;
             borderEdges3.TopLeft = true;
@@ -775,7 +816,7 @@ namespace ROBOClicker
             this.bunifuButton1.ButtonTextMarginLeft = 0;
             this.bunifuButton1.ColorContrastOnClick = 45;
             this.bunifuButton1.ColorContrastOnHover = 45;
-            this.bunifuButton1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             borderEdges4.BottomLeft = true;
             borderEdges4.BottomRight = true;
             borderEdges4.TopLeft = true;
@@ -1258,7 +1299,7 @@ namespace ROBOClicker
             this.bunifuButton3.ButtonTextMarginLeft = 0;
             this.bunifuButton3.ColorContrastOnClick = 45;
             this.bunifuButton3.ColorContrastOnHover = 45;
-            this.bunifuButton3.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             borderEdges5.BottomLeft = true;
             borderEdges5.BottomRight = true;
             borderEdges5.TopLeft = true;
@@ -1350,7 +1391,7 @@ namespace ROBOClicker
             this.bunifuButton2.ButtonTextMarginLeft = 0;
             this.bunifuButton2.ColorContrastOnClick = 45;
             this.bunifuButton2.ColorContrastOnHover = 45;
-            this.bunifuButton2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             borderEdges6.BottomLeft = true;
             borderEdges6.BottomRight = true;
             borderEdges6.TopLeft = true;
@@ -1504,6 +1545,11 @@ namespace ROBOClicker
             this.txtSite.TextChange += new System.EventHandler(this.txtSite_TextChanged_1);
             this.txtSite.TextChanged += new System.EventHandler(this.bunifuTextBox1_TextChanged);
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 10000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // prgs
             // 
             this.prgs.AllowAnimations = false;
@@ -1550,11 +1596,6 @@ namespace ROBOClicker
             this.bunifuPictureBox1.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Square;
             this.bunifuPictureBox1.Click += new System.EventHandler(this.bunifuPictureBox1_Click);
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 10000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // ROBO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1577,6 +1618,7 @@ namespace ROBOClicker
             this.groupBox2.PerformLayout();
             this.grpSeoSite.ResumeLayout(false);
             this.grpSeoSite.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgDeleteFile)).EndInit();
             this.grpReportage.ResumeLayout(false);
             this.grpReportage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox2)).EndInit();
@@ -1616,5 +1658,7 @@ namespace ROBOClicker
         private System.Windows.Forms.Timer timer1;
         private Bunifu.UI.WinForms.BunifuTextBox txtReportageLink;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnAddScript;
+        private Bunifu.UI.WinForms.BunifuLabel lblFileName;
+        private Bunifu.UI.WinForms.BunifuPictureBox imgDeleteFile;
     }
 }

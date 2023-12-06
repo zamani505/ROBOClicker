@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -65,7 +66,11 @@ namespace ROBOClicker
             _scriptFiles = _saveData.ReadScriptFile();
             if (_scriptFiles != null)
             {
+                if (_scriptFiles.Script.Length < 3) { _scriptFiles = null;return;}
 
+                imgDeleteFile.Visible = true;
+                lblFileName.Text= _scriptFiles.FileName;
+                lblFileName.Visible = true;
             }
         }
         private void InitialRoboSetting()
@@ -538,8 +543,21 @@ namespace ROBOClicker
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-
+                var sc = new ScriptFiles() { FileName = dialog.SafeFileName,
+                    Script =File.ReadAllText(dialog.FileName) };
+                lblFileName.Text = dialog.SafeFileName;
+                lblFileName.Visible = true;
+                imgDeleteFile.Visible = true;
+                _saveData.WriteScriptFile(sc);
             }
+        }
+
+        private void imgDeleteFile_Click(object sender, EventArgs e)
+        {
+            _saveData.WriteScriptFile(new ScriptFiles(){FileName = "",Script = ""});
+            lblFileName.Text = "";
+            lblFileName.Visible = false;
+            imgDeleteFile.Visible = false;
         }
     }
     public class JavascriptManager : ILoadHandler, IRenderProcessMessageHandler
