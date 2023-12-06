@@ -26,12 +26,14 @@ namespace ROBOClicker
         public static string menu = "";
         public static string[] urls;
         public static int waitTime = 0;
-        public static string yourSite = "";
+        public static string[] yourSite;
+        public static string reportageLink = "";
         public static int progressValue = 0;
         public static string seoText = "";
         public static string rdoChecked = "";
         public static byte reportageCounter = 0;
         public static RoboSetting _roboSetting;
+        public static ScriptFiles _scriptFiles;
         CreateConnection _createConn = new CreateConnection();
         SaveData _saveData = new SaveData();
         IPCatchService _ipCatchService = new IPCatchService();
@@ -55,9 +57,17 @@ namespace ROBOClicker
             InitialVPN();
             InitialSite();
             InitialReportageSite();
+            InitialSciptFile();
             InitBrowser().GetAwaiter();
         }
+        private void InitialSciptFile()
+        {
+            _scriptFiles = _saveData.ReadScriptFile();
+            if (_scriptFiles != null)
+            {
 
+            }
+        }
         private void InitialRoboSetting()
         {
             var roboSetting = _saveData.ReadRoboSetting();
@@ -113,26 +123,38 @@ namespace ROBOClicker
             //}
         }
 
+        private void TryVpnConnect(Enums.VpnState vpnState, byte tryVpnConnect)
+        {
+            switch (vpnState)
+            {
+            case Enums.VpnState.CanNotConnect:
+                if (tryVpnConnect < _roboSetting.TryVpnConnect)
+                {
+                    tryVpnConnect += 1;
+                    TryVpnConnect(TryChangeIP(), tryVpnConnect);
+                }
+                break;
+            case Enums.VpnState.Connected:
+                JavascriptManager.loadUrl_Finishid = false;
+                jsmanager = null;
+                StartReportage();
+                break;
+            case Enums.VpnState.Error:
+                timer1.Enabled = false;
+                reportageCounter = _roboSetting.TryReportage;
+                break;
+            }
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (JavascriptManager.loadUrl_Finishid)
             {
                 prgs.Value += 5;
+                reportageCounter++;
                 if (reportageCounter < _roboSetting.TryReportage)
                 {
-                    JavascriptManager.loadUrl_Finishid = false;
-                    jsmanager = null;
-                    var tryIpChange = TryChangeIP();
-                    switch (tryIpChange)
-                    {
-                        case Enums.VpnState.CanNotConnect:
-                            break;
-                        case Enums.VpnState.Connected:
-                            StartReportage();
-                            break;
-                        case Enums.VpnState.Error:
-                            break;
-                    }
+                    TryVpnConnect(TryChangeIP(), 1);
                 }
                 else
                 {
@@ -142,7 +164,7 @@ namespace ROBOClicker
             }
             else
             {
-             //   prgs.Value = progressValue > 100 && !JavascriptManager.loadUrl_Finishid ? 95 : progressValue;
+                //   prgs.Value = progressValue > 100 && !JavascriptManager.loadUrl_Finishid ? 95 : progressValue;
             }
 
             //bunifuButton3.Enabled = true;
@@ -192,8 +214,7 @@ namespace ROBOClicker
             }
             catch (Exception e)
             {
-
-                MessageBox.Show("متاسفانه مشکلی بوجود آمده است" + Environment.NewLine + e.Message);
+                MessageBox.Show("لطفا ویپی ان یا اینترنت خود را بررسی نمایید" + Environment.NewLine + e.Message);
                 return Enums.VpnState.Error;
             }
             return Enums.VpnState.CanNotConnect;
@@ -203,14 +224,17 @@ namespace ROBOClicker
         {
             try
             {
-                urls = txtSite.Text.Split(',');
+                urls = txtSite.Text.Split(new[] { Environment.NewLine, "," }, StringSplitOptions.None);
                 waitTime = int.Parse(txtWaiteTime.Text);
-                yourSite = txtDestinationSite.Text;
+                yourSite = txtDestinationSite.Text.Split(new[] { Environment.NewLine, "," }, StringSplitOptions.None);
+                reportageLink = string.IsNullOrEmpty(txtReportageLink.Text) ? string.Empty : txtReportageLink.Text;
                 seoText = txtSeoText.Text;
                 progressValue = 0;
                 prgs.Value = 0;
                 prgs.Visible = true;
+                timer1.Enabled = true;
                 bunifuButton3.Enabled = false;
+                reportageCounter = 0;
                 jsmanager = new JavascriptManager(browser);
             }
             catch (Exception e)
@@ -218,6 +242,7 @@ namespace ROBOClicker
                 progressValue = 0;
                 prgs.Value = 0;
                 bunifuButton3.Enabled = true;
+                timer1.Enabled = false;
                 MessageBox.Show("متاسفانه مشکلی بوجود آمده است" + Environment.NewLine + e.Message);
             }
         }
@@ -229,7 +254,8 @@ namespace ROBOClicker
                 MessageBox.Show("Please connect vpn!");
                 return;
             }
-            timer1.Enabled = true;
+
+
             StartReportage();
 
 
@@ -390,7 +416,7 @@ namespace ROBOClicker
             {
                 var site = new Site
                 {
-                    Urls = txtDestinationSite.Text.Split(new[] { Environment.NewLine }, StringSplitOptions.None),
+                    Urls = txtDestinationSite.Text.Split(new[] { Environment.NewLine, "," }, StringSplitOptions.None),
                     SeoText = txtSeoText.Text,
                     WaitTime = int.Parse(txtWaiteTime.Text)
                 };
@@ -502,6 +528,19 @@ namespace ROBOClicker
         {
 
         }
+
+        private void btnAddScript_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "txt files (*.txt)|*.txt";
+            dialog.InitialDirectory = @"C:\";
+            dialog.Title = "Please select an script file.";
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+        }
     }
     public class JavascriptManager : ILoadHandler, IRenderProcessMessageHandler
     {
@@ -559,7 +598,7 @@ namespace ROBOClicker
                 {
 
                     string query = "";
-                    if (chromiumWebBrowser.Address.Contains(ROBO.yourSite))
+                    if (chromiumWebBrowser.Address.Contains(ROBO.yourSite[0]))
                     {
                         Thread.Sleep(ROBO.waitTime);
                         ClickSistemkaran(ref query);
@@ -618,40 +657,40 @@ namespace ROBOClicker
             {
                 switch (menu)
                 {
-                    case "":
-                        nextMenu = "menu-item-11";
-                        break;
-                    case "menu-item-11":
-                        nextMenu = "menu-item-150";
-                        break;
-                    case "menu-item-150":
-                        nextMenu = "menu-item-69";
-                        break;
-                        //case "menu-item-69":
-                        //    nextMenu = "menu-item-28";
-                        //    break;
-                        //case "menu-item-28":
-                        //    nextMenu = "menu-item-28";
-                        //    break;
+                case "":
+                    nextMenu = "menu-item-11";
+                    break;
+                case "menu-item-11":
+                    nextMenu = "menu-item-150";
+                    break;
+                case "menu-item-150":
+                    nextMenu = "menu-item-69";
+                    break;
+                    //case "menu-item-69":
+                    //    nextMenu = "menu-item-28";
+                    //    break;
+                    //case "menu-item-28":
+                    //    nextMenu = "menu-item-28";
+                    //    break;
                 }
             }
             else if (ROBO.rdoChecked == "arpce")
             {
                 switch (menu)
                 {
-                    case "":
-                        nextMenu = "menu-item-5596";
-                        break;
-                    case "menu-item-5596":
-                        nextMenu = "menu-item-5595";
-                        break;
-                    case "menu-item-5595":
-                        nextMenu = "menu-item-5597";
-                        break;
-                    case "menu-item-5597":
-                        nextMenu = "menu-item-5600";
+                case "":
+                    nextMenu = "menu-item-5596";
+                    break;
+                case "menu-item-5596":
+                    nextMenu = "menu-item-5595";
+                    break;
+                case "menu-item-5595":
+                    nextMenu = "menu-item-5597";
+                    break;
+                case "menu-item-5597":
+                    nextMenu = "menu-item-5600";
 
-                        break;
+                    break;
                 }
             }
             return nextMenu;

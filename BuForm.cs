@@ -16,5 +16,15 @@ namespace ROBOClicker
         {
             InitializeComponent();
         }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+            bunifuUserControl1.Visible = !bunifuUserControl1.Visible;
+        }
+
+        private void bunifuUserControl1_VisibleChanged(object sender, EventArgs e)
+        {
+            bunifuUserControl1.AnimationSpeed = 1;
+        }
     }
 }

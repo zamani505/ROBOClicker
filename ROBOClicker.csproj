@@ -86,6 +86,7 @@
     <Compile Include="Model\Enums.cs" />
     <Compile Include="Model\Reportage.cs" />
     <Compile Include="Model\RoboSetting.cs" />
+    <Compile Include="Model\ScriptFiles.cs" />
     <Compile Include="Model\Site.cs" />
     <Compile Include="Model\Vpn.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
@@ -118,6 +119,7 @@
     <EmbeddedResource Include="ROBO.resx">
       <DependentUpon>ROBO.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include=".editorconfig" />
     <None Include="bin\Debug\chrome_100_percent.pak" />
     <None Include="bin\Debug\chrome_200_percent.pak" />
     <None Include="bin\Debug\debug.log" />

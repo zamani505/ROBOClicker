@@ -66,6 +66,20 @@ namespace ROBOClicker.Service
             }
         }
         #endregion
+        #region ScriptFile
+        public ScriptFiles ReadScriptFile()
+        {
+            var js = File.ReadAllText(Environment.CommandLine.Substring(1, Environment.CommandLine.LastIndexOf('\\')) + "scf.dll");
+            return js.Length > 0 ? JsonConvert.DeserializeObject<ScriptFiles>(js) : null;
+        }
 
+        public void WriteScriptFile(ScriptFiles scriptFiles)
+        {
+            using (var stream = new StreamWriter(Environment.CommandLine.Substring(1, Environment.CommandLine.LastIndexOf('\\')) + "scf.dll"))
+            {
+                stream.Write(JsonConvert.SerializeObject(scriptFiles));
+            }
+        }
+        #endregion
     }
 }
