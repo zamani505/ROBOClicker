@@ -30,7 +30,6 @@ namespace ROBOClicker
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ROBO));
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
@@ -59,16 +58,13 @@ namespace ROBOClicker
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties22 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties23 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties24 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties25 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties26 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties27 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties28 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties29 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties30 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties31 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties32 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ROBO));
             this.browser = new CefSharp.WinForms.ChromiumWebBrowser();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtServerIP = new Bunifu.UI.WinForms.BunifuTextBox();
@@ -91,7 +87,6 @@ namespace ROBOClicker
             this.txtDestinationSite = new Bunifu.UI.WinForms.BunifuTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.grpReportage = new System.Windows.Forms.GroupBox();
-            this.txtReportageLink = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuPictureBox2 = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.lblReportageMess = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuButton3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -100,21 +95,27 @@ namespace ROBOClicker
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.prgs = new Bunifu.UI.WinForms.BunifuProgressBar();
             this.bunifuPictureBox1 = new Bunifu.UI.WinForms.BunifuPictureBox();
+            this.bunifuPictureBox3 = new Bunifu.UI.WinForms.BunifuPictureBox();
+            this.bunifuPictureBox4 = new Bunifu.UI.WinForms.BunifuPictureBox();
+            this.bunifuPictureBox5 = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.groupBox2.SuspendLayout();
             this.grpSeoSite.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgDeleteFile)).BeginInit();
             this.grpReportage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // browser
             // 
             this.browser.ActivateBrowserOnCreation = false;
 // TODO: Code generation for '' failed because of Exception 'Invalid Primitive Type: System.IntPtr. Consider using CodeObjectCreateExpression.'.
-            this.browser.Location = new System.Drawing.Point(448, 19);
+            this.browser.Location = new System.Drawing.Point(448, 49);
             this.browser.Name = "browser";
-            this.browser.Size = new System.Drawing.Size(213, 155);
+            this.browser.Size = new System.Drawing.Size(213, 146);
             this.browser.TabIndex = 0;
             this.browser.LoadingStateChanged += new System.EventHandler<CefSharp.LoadingStateChangedEventArgs>(this.chromiumWebBrowser1_LoadingStateChanged);
             this.browser.IsBrowserInitializedChanged += new System.EventHandler(this.browser_IsBrowserInitializedChanged);
@@ -123,6 +124,7 @@ namespace ROBOClicker
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.groupBox2.Controls.Add(this.bunifuPictureBox3);
             this.groupBox2.Controls.Add(this.txtServerIP);
             this.groupBox2.Controls.Add(this.btnCreatVpn);
             this.groupBox2.Controls.Add(this.lblVpnName2);
@@ -652,6 +654,7 @@ namespace ROBOClicker
             // grpSeoSite
             // 
             this.grpSeoSite.BackColor = System.Drawing.Color.Transparent;
+            this.grpSeoSite.Controls.Add(this.bunifuPictureBox4);
             this.grpSeoSite.Controls.Add(this.lblFileName);
             this.grpSeoSite.Controls.Add(this.imgDeleteFile);
             this.grpSeoSite.Controls.Add(this.btnAddScript);
@@ -692,7 +695,7 @@ namespace ROBOClicker
             this.imgDeleteFile.AllowFocused = false;
             this.imgDeleteFile.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.imgDeleteFile.AutoSizeHeight = true;
-            this.imgDeleteFile.BorderRadius = 6;
+            this.imgDeleteFile.BorderRadius = 9;
             this.imgDeleteFile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.imgDeleteFile.Image = global::ROBOClicker.Properties.Resources.delete;
             this.imgDeleteFile.IsCircle = true;
@@ -1155,7 +1158,7 @@ namespace ROBOClicker
             // grpReportage
             // 
             this.grpReportage.BackColor = System.Drawing.Color.Transparent;
-            this.grpReportage.Controls.Add(this.txtReportageLink);
+            this.grpReportage.Controls.Add(this.bunifuPictureBox5);
             this.grpReportage.Controls.Add(this.bunifuPictureBox2);
             this.grpReportage.Controls.Add(this.lblReportageMess);
             this.grpReportage.Controls.Add(this.bunifuButton3);
@@ -1172,94 +1175,17 @@ namespace ROBOClicker
             this.grpReportage.Text = "Reportage Site";
             this.grpReportage.Enter += new System.EventHandler(this.grpReportage_Enter);
             // 
-            // txtReportageLink
-            // 
-            this.txtReportageLink.AcceptsReturn = false;
-            this.txtReportageLink.AcceptsTab = false;
-            this.txtReportageLink.AnimationSpeed = 200;
-            this.txtReportageLink.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.txtReportageLink.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txtReportageLink.AutoSizeHeight = true;
-            this.txtReportageLink.BackColor = System.Drawing.Color.Transparent;
-            this.txtReportageLink.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtReportageLink.BackgroundImage")));
-            this.txtReportageLink.BorderColorActive = System.Drawing.Color.DodgerBlue;
-            this.txtReportageLink.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.txtReportageLink.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.txtReportageLink.BorderColorIdle = System.Drawing.Color.Silver;
-            this.txtReportageLink.BorderRadius = 1;
-            this.txtReportageLink.BorderThickness = 1;
-            this.txtReportageLink.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
-            this.txtReportageLink.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtReportageLink.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtReportageLink.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
-            this.txtReportageLink.DefaultText = "";
-            this.txtReportageLink.FillColor = System.Drawing.Color.White;
-            this.txtReportageLink.ForeColor = System.Drawing.Color.Black;
-            this.txtReportageLink.HideSelection = true;
-            this.txtReportageLink.IconLeft = null;
-            this.txtReportageLink.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtReportageLink.IconPadding = 10;
-            this.txtReportageLink.IconRight = null;
-            this.txtReportageLink.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtReportageLink.Lines = new string[0];
-            this.txtReportageLink.Location = new System.Drawing.Point(9, 182);
-            this.txtReportageLink.MaxLength = 32767;
-            this.txtReportageLink.MinimumSize = new System.Drawing.Size(1, 1);
-            this.txtReportageLink.Modified = false;
-            this.txtReportageLink.Multiline = true;
-            this.txtReportageLink.Name = "txtReportageLink";
-            stateProperties25.BorderColor = System.Drawing.Color.DodgerBlue;
-            stateProperties25.FillColor = System.Drawing.Color.Empty;
-            stateProperties25.ForeColor = System.Drawing.Color.Empty;
-            stateProperties25.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtReportageLink.OnActiveState = stateProperties25;
-            stateProperties26.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties26.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            stateProperties26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            stateProperties26.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.txtReportageLink.OnDisabledState = stateProperties26;
-            stateProperties27.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties27.FillColor = System.Drawing.Color.Empty;
-            stateProperties27.ForeColor = System.Drawing.Color.Empty;
-            stateProperties27.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtReportageLink.OnHoverState = stateProperties27;
-            stateProperties28.BorderColor = System.Drawing.Color.Silver;
-            stateProperties28.FillColor = System.Drawing.Color.White;
-            stateProperties28.ForeColor = System.Drawing.Color.Black;
-            stateProperties28.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtReportageLink.OnIdleState = stateProperties28;
-            this.txtReportageLink.Padding = new System.Windows.Forms.Padding(3);
-            this.txtReportageLink.PasswordChar = '\0';
-            this.txtReportageLink.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txtReportageLink.PlaceholderText = "Your Reportage Link";
-            this.txtReportageLink.ReadOnly = false;
-            this.txtReportageLink.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtReportageLink.SelectedText = "";
-            this.txtReportageLink.SelectionLength = 0;
-            this.txtReportageLink.SelectionStart = 0;
-            this.txtReportageLink.ShortcutsEnabled = true;
-            this.txtReportageLink.Size = new System.Drawing.Size(214, 31);
-            this.txtReportageLink.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
-            this.txtReportageLink.TabIndex = 38;
-            this.txtReportageLink.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtReportageLink.TextMarginBottom = 0;
-            this.txtReportageLink.TextMarginLeft = 3;
-            this.txtReportageLink.TextMarginTop = 1;
-            this.txtReportageLink.TextPlaceholder = "Your Reportage Link";
-            this.txtReportageLink.UseSystemPasswordChar = false;
-            this.txtReportageLink.WordWrap = true;
-            // 
             // bunifuPictureBox2
             // 
             this.bunifuPictureBox2.AllowFocused = false;
             this.bunifuPictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.bunifuPictureBox2.AutoSizeHeight = true;
-            this.bunifuPictureBox2.BorderRadius = 35;
+            this.bunifuPictureBox2.BorderRadius = 40;
             this.bunifuPictureBox2.Image = global::ROBOClicker.Properties.Resources.media_player;
             this.bunifuPictureBox2.IsCircle = true;
-            this.bunifuPictureBox2.Location = new System.Drawing.Point(10, 220);
+            this.bunifuPictureBox2.Location = new System.Drawing.Point(40, 201);
             this.bunifuPictureBox2.Name = "bunifuPictureBox2";
-            this.bunifuPictureBox2.Size = new System.Drawing.Size(70, 70);
+            this.bunifuPictureBox2.Size = new System.Drawing.Size(80, 80);
             this.bunifuPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.bunifuPictureBox2.TabIndex = 37;
             this.bunifuPictureBox2.TabStop = false;
@@ -1330,7 +1256,7 @@ namespace ROBOClicker
             this.bunifuButton3.IdleIconLeftImage = null;
             this.bunifuButton3.IdleIconRightImage = null;
             this.bunifuButton3.IndicateFocus = false;
-            this.bunifuButton3.Location = new System.Drawing.Point(483, 243);
+            this.bunifuButton3.Location = new System.Drawing.Point(483, 246);
             this.bunifuButton3.Name = "bunifuButton3";
             this.bunifuButton3.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton3.OnDisabledState.BorderRadius = 1;
@@ -1422,7 +1348,7 @@ namespace ROBOClicker
             this.bunifuButton2.IdleIconLeftImage = null;
             this.bunifuButton2.IdleIconRightImage = null;
             this.bunifuButton2.IndicateFocus = false;
-            this.bunifuButton2.Location = new System.Drawing.Point(483, 201);
+            this.bunifuButton2.Location = new System.Drawing.Point(483, 204);
             this.bunifuButton2.Name = "bunifuButton2";
             this.bunifuButton2.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton2.OnDisabledState.BorderRadius = 1;
@@ -1502,26 +1428,26 @@ namespace ROBOClicker
             this.txtSite.Modified = false;
             this.txtSite.Multiline = true;
             this.txtSite.Name = "txtSite";
-            stateProperties29.BorderColor = System.Drawing.Color.DodgerBlue;
-            stateProperties29.FillColor = System.Drawing.Color.Empty;
-            stateProperties29.ForeColor = System.Drawing.Color.Empty;
-            stateProperties29.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtSite.OnActiveState = stateProperties29;
-            stateProperties30.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties30.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            stateProperties30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            stateProperties30.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.txtSite.OnDisabledState = stateProperties30;
-            stateProperties31.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties31.FillColor = System.Drawing.Color.Empty;
-            stateProperties31.ForeColor = System.Drawing.Color.Empty;
-            stateProperties31.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtSite.OnHoverState = stateProperties31;
-            stateProperties32.BorderColor = System.Drawing.Color.Silver;
-            stateProperties32.FillColor = System.Drawing.Color.White;
-            stateProperties32.ForeColor = System.Drawing.Color.Black;
-            stateProperties32.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtSite.OnIdleState = stateProperties32;
+            stateProperties25.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties25.FillColor = System.Drawing.Color.Empty;
+            stateProperties25.ForeColor = System.Drawing.Color.Empty;
+            stateProperties25.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtSite.OnActiveState = stateProperties25;
+            stateProperties26.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties26.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            stateProperties26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            stateProperties26.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.txtSite.OnDisabledState = stateProperties26;
+            stateProperties27.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties27.FillColor = System.Drawing.Color.Empty;
+            stateProperties27.ForeColor = System.Drawing.Color.Empty;
+            stateProperties27.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtSite.OnHoverState = stateProperties27;
+            stateProperties28.BorderColor = System.Drawing.Color.Silver;
+            stateProperties28.FillColor = System.Drawing.Color.White;
+            stateProperties28.ForeColor = System.Drawing.Color.Black;
+            stateProperties28.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtSite.OnIdleState = stateProperties28;
             this.txtSite.Padding = new System.Windows.Forms.Padding(3);
             this.txtSite.PasswordChar = '\0';
             this.txtSite.PlaceholderForeColor = System.Drawing.Color.Silver;
@@ -1532,7 +1458,7 @@ namespace ROBOClicker
             this.txtSite.SelectionLength = 0;
             this.txtSite.SelectionStart = 830;
             this.txtSite.ShortcutsEnabled = true;
-            this.txtSite.Size = new System.Drawing.Size(434, 155);
+            this.txtSite.Size = new System.Drawing.Size(434, 176);
             this.txtSite.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.txtSite.TabIndex = 20;
             this.txtSite.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1596,6 +1522,57 @@ namespace ROBOClicker
             this.bunifuPictureBox1.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Square;
             this.bunifuPictureBox1.Click += new System.EventHandler(this.bunifuPictureBox1_Click);
             // 
+            // bunifuPictureBox3
+            // 
+            this.bunifuPictureBox3.AllowFocused = false;
+            this.bunifuPictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bunifuPictureBox3.AutoSizeHeight = false;
+            this.bunifuPictureBox3.BorderRadius = 0;
+            this.bunifuPictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuPictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("bunifuPictureBox3.Image")));
+            this.bunifuPictureBox3.IsCircle = true;
+            this.bunifuPictureBox3.Location = new System.Drawing.Point(639, 19);
+            this.bunifuPictureBox3.Name = "bunifuPictureBox3";
+            this.bunifuPictureBox3.Size = new System.Drawing.Size(30, 24);
+            this.bunifuPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bunifuPictureBox3.TabIndex = 29;
+            this.bunifuPictureBox3.TabStop = false;
+            this.bunifuPictureBox3.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
+            // 
+            // bunifuPictureBox4
+            // 
+            this.bunifuPictureBox4.AllowFocused = false;
+            this.bunifuPictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bunifuPictureBox4.AutoSizeHeight = false;
+            this.bunifuPictureBox4.BorderRadius = 12;
+            this.bunifuPictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuPictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("bunifuPictureBox4.Image")));
+            this.bunifuPictureBox4.IsCircle = true;
+            this.bunifuPictureBox4.Location = new System.Drawing.Point(642, 16);
+            this.bunifuPictureBox4.Name = "bunifuPictureBox4";
+            this.bunifuPictureBox4.Size = new System.Drawing.Size(30, 30);
+            this.bunifuPictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bunifuPictureBox4.TabIndex = 37;
+            this.bunifuPictureBox4.TabStop = false;
+            this.bunifuPictureBox4.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
+            // 
+            // bunifuPictureBox5
+            // 
+            this.bunifuPictureBox5.AllowFocused = false;
+            this.bunifuPictureBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bunifuPictureBox5.AutoSizeHeight = false;
+            this.bunifuPictureBox5.BorderRadius = 12;
+            this.bunifuPictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuPictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("bunifuPictureBox5.Image")));
+            this.bunifuPictureBox5.IsCircle = true;
+            this.bunifuPictureBox5.Location = new System.Drawing.Point(641, 10);
+            this.bunifuPictureBox5.Name = "bunifuPictureBox5";
+            this.bunifuPictureBox5.Size = new System.Drawing.Size(30, 30);
+            this.bunifuPictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bunifuPictureBox5.TabIndex = 38;
+            this.bunifuPictureBox5.TabStop = false;
+            this.bunifuPictureBox5.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
+            // 
             // ROBO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1623,6 +1600,9 @@ namespace ROBOClicker
             this.grpReportage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1656,9 +1636,11 @@ namespace ROBOClicker
         private Bunifu.UI.WinForms.BunifuProgressBar prgs;
         private Bunifu.UI.WinForms.BunifuPictureBox bunifuPictureBox2;
         private System.Windows.Forms.Timer timer1;
-        private Bunifu.UI.WinForms.BunifuTextBox txtReportageLink;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnAddScript;
         private Bunifu.UI.WinForms.BunifuLabel lblFileName;
         private Bunifu.UI.WinForms.BunifuPictureBox imgDeleteFile;
+        private Bunifu.UI.WinForms.BunifuPictureBox bunifuPictureBox3;
+        private Bunifu.UI.WinForms.BunifuPictureBox bunifuPictureBox4;
+        private Bunifu.UI.WinForms.BunifuPictureBox bunifuPictureBox5;
     }
 }

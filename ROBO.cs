@@ -28,7 +28,7 @@ namespace ROBOClicker
         public static string[] urls;
         public static int waitTime = 0;
         public static string[] yourSite;
-        public static string reportageLink = "";
+        //public static string reportageLink = "";
         public static int progressValue = 0;
         public static string seoText = "";
         public static string rdoChecked = "";
@@ -66,10 +66,10 @@ namespace ROBOClicker
             _scriptFiles = _saveData.ReadScriptFile();
             if (_scriptFiles != null)
             {
-                if (_scriptFiles.Script.Length < 3) { _scriptFiles = null;return;}
+                if (_scriptFiles.Script.Length < 3) { _scriptFiles = null; return; }
 
                 imgDeleteFile.Visible = true;
-                lblFileName.Text= _scriptFiles.FileName;
+                lblFileName.Text = _scriptFiles.FileName;
                 lblFileName.Visible = true;
             }
         }
@@ -232,7 +232,7 @@ namespace ROBOClicker
                 urls = txtSite.Text.Split(new[] { Environment.NewLine, "," }, StringSplitOptions.None);
                 waitTime = int.Parse(txtWaiteTime.Text);
                 yourSite = txtDestinationSite.Text.Split(new[] { Environment.NewLine, "," }, StringSplitOptions.None);
-                reportageLink = string.IsNullOrEmpty(txtReportageLink.Text) ? string.Empty : txtReportageLink.Text;
+                // reportageLink = string.IsNullOrEmpty(txtReportageLink.Text) ? string.Empty : txtReportageLink.Text;
                 seoText = txtSeoText.Text;
                 progressValue = 0;
                 prgs.Value = 0;
@@ -543,8 +543,11 @@ namespace ROBOClicker
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                var sc = new ScriptFiles() { FileName = dialog.SafeFileName,
-                    Script =File.ReadAllText(dialog.FileName) };
+                var sc = new ScriptFiles()
+                {
+                    FileName = dialog.SafeFileName,
+                    Script = File.ReadAllText(dialog.FileName)
+                };
                 lblFileName.Text = dialog.SafeFileName;
                 lblFileName.Visible = true;
                 imgDeleteFile.Visible = true;
@@ -554,7 +557,7 @@ namespace ROBOClicker
 
         private void imgDeleteFile_Click(object sender, EventArgs e)
         {
-            _saveData.WriteScriptFile(new ScriptFiles(){FileName = "",Script = ""});
+            _saveData.WriteScriptFile(new ScriptFiles() { FileName = "", Script = "" });
             lblFileName.Text = "";
             lblFileName.Visible = false;
             imgDeleteFile.Visible = false;
@@ -563,15 +566,16 @@ namespace ROBOClicker
     public class JavascriptManager : ILoadHandler, IRenderProcessMessageHandler
     {
         string injection = "window.InjectedObject = {};";
-        public static int countLoader = 0;
+
         public ChromiumWebBrowser browser_temp;
         public static bool loadUrl_Finishid = false;
-        public int index = 0;
+        public byte urlsIndex = 0;
+        public byte yourSiteIndex = 0;
         public JavascriptManager(ChromiumWebBrowser browser)
         {
             browser_temp = browser;
             browser_temp.Name = "zagoli";
-            LoadUrl(ROBO.urls[index], browser);
+            LoadUrl(ROBO.urls[urlsIndex], browser);
         }
         public void LoadUrl(string url, ChromiumWebBrowser browser = null)
         {
@@ -614,7 +618,21 @@ namespace ROBOClicker
             {
                 if (frameLoadEndArgs.Frame.IsMain)
                 {
+                    #region CheckIsYourSite
+                    if (ROBO.yourSite.FirstOrDefault(o => o.Contains(chromiumWebBrowser.Address)) != null)
+                    {
+                        if (ROBO._scriptFiles != null)
+                            if (!string.IsNullOrEmpty(ROBO._scriptFiles.Script))
+                            {
+                                frameLoadEndArgs.Frame.ExecuteJavaScriptAsync(ROBO._scriptFiles.Script);
+                                Thread.Sleep(ROBO.waitTime);
+                            }
+                    }
+                    #endregion
+                }
 
+                if (frameLoadEndArgs.Frame.IsMain)
+                {
                     string query = "";
                     if (chromiumWebBrowser.Address.Contains(ROBO.yourSite[0]))
                     {

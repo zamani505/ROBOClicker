@@ -249,6 +249,7 @@
     <Content Include="connect.png" />
     <Content Include="create.png" />
     <Content Include="delete.png" />
+    <Content Include="info.png" />
     <Content Include="media_player.ico" />
     <Content Include="obj\Bunifu.Licensing.dll" />
     <Content Include="obj\Bunifu.UI.WinForms.dll" />
