@@ -650,7 +650,7 @@ namespace ROBOClicker
 
         private void ClickReportageLink(ref string query)
         {
-
+            query+= $"var els = document.getElementsByTagName('a[href = '']');";
         }
 
         public void OnFrameLoadEnd(IWebBrowser chromiumWebBrowser, FrameLoadEndEventArgs frameLoadEndArgs)
