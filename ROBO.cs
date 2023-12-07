@@ -233,7 +233,7 @@ namespace ROBOClicker
                 waitTime = int.Parse(txtWaiteTime.Text);
                 yourSite = txtDestinationSite.Text.Split(new[] { Environment.NewLine, "," }, StringSplitOptions.None);
                 // reportageLink = string.IsNullOrEmpty(txtReportageLink.Text) ? string.Empty : txtReportageLink.Text;
-                seoText = txtSeoText.Text;
+                seoText = string.IsNullOrEmpty(txtSeoText.Text)?string.Empty : txtSeoText.Text;
                 progressValue = 0;
                 prgs.Value = 0;
                 prgs.Visible = true;
@@ -612,6 +612,47 @@ namespace ROBOClicker
             //throw new NotImplementedException();
         }
 
+        private bool CheckIsYourSite(string chromeAddress, FrameLoadEndEventArgs frameLoadEndArgs)
+        {
+            if (ROBO.yourSite.FirstOrDefault(o => o.Contains(chromeAddress)) != null)
+            {
+                if (ROBO._scriptFiles != null)
+                    if (!string.IsNullOrEmpty(ROBO._scriptFiles.Script))
+                    {
+                        frameLoadEndArgs.Frame.ExecuteJavaScriptAsync(ROBO._scriptFiles.Script);
+                        Thread.Sleep(ROBO.waitTime);
+                    }
+
+                return true;
+
+            }
+
+            return false;
+        }
+
+        private void NextYourSite()
+        {
+            yourSiteIndex++;
+            if (yourSiteIndex < ROBO.yourSite.Length)
+                LoadUrl(ROBO.yourSite[yourSiteIndex]);
+
+        }
+
+        private void CreateAD(ref string query)
+        {
+            query += "const aHtml=document.createElement('a');" + Environment.NewLine;
+            query += "aHtml.setAttribute('id','aSeo');" + Environment.NewLine;
+            query += "aHtml.href='" + ROBO.yourSite[0] + "';" + Environment.NewLine;
+            query += "aHtml.text='" + ROBO.seoText + "';" + Environment.NewLine;
+            query += "document.body.appendChild(aHtml);" + Environment.NewLine;
+            query += "document.getElementById('aSeo').click();" + Environment.NewLine;
+        }
+
+        private void ClickReportageLink(ref string query)
+        {
+
+        }
+
         public void OnFrameLoadEnd(IWebBrowser chromiumWebBrowser, FrameLoadEndEventArgs frameLoadEndArgs)
         {
             try
@@ -619,15 +660,20 @@ namespace ROBOClicker
                 if (frameLoadEndArgs.Frame.IsMain)
                 {
                     #region CheckIsYourSite
-                    if (ROBO.yourSite.FirstOrDefault(o => o.Contains(chromiumWebBrowser.Address)) != null)
+                    var isYourSite = CheckIsYourSite(chromiumWebBrowser.Address, frameLoadEndArgs);
+                    if (isYourSite)
                     {
-                        if (ROBO._scriptFiles != null)
-                            if (!string.IsNullOrEmpty(ROBO._scriptFiles.Script))
-                            {
-                                frameLoadEndArgs.Frame.ExecuteJavaScriptAsync(ROBO._scriptFiles.Script);
-                                Thread.Sleep(ROBO.waitTime);
-                            }
+                        NextYourSite();
+                        return;
                     }
+                    #endregion
+                    #region CheckIsUrls
+
+                    if (string.IsNullOrEmpty(ROBO.seoText))
+                    {
+
+                    }
+
                     #endregion
                 }
 
@@ -664,17 +710,17 @@ namespace ROBOClicker
         {
             if (finishLoading)
             {
-                index++;
-                if (index < ROBO.urls.Length)
+                urlsIndex++;
+                if (urlsIndex < ROBO.urls.Length)
                 {
 
-                    LoadUrl(ROBO.urls[index]);
+                    LoadUrl(ROBO.urls[urlsIndex]);
                     // ROBO.ssssss += ROBO.urls[index]+"####";
                 }
                 else
                 {
                     ROBO.urls = new string[] { };
-                    index = 0;
+                    urlsIndex = 0;
                     menu = "";
                     loadUrl_Finishid = true;
                     return;
