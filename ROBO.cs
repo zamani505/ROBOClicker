@@ -35,6 +35,7 @@ namespace ROBOClicker
         public static byte reportageCounter = 0;
         public static RoboSetting _roboSetting;
         public static ScriptFiles _scriptFiles;
+        public  static bool isReportage=false
         CreateConnection _createConn = new CreateConnection();
         SaveData _saveData = new SaveData();
         IPCatchService _ipCatchService = new IPCatchService();
@@ -233,7 +234,7 @@ namespace ROBOClicker
                 waitTime = int.Parse(txtWaiteTime.Text);
                 yourSite = txtDestinationSite.Text.Split(new[] { Environment.NewLine, "," }, StringSplitOptions.None);
                 // reportageLink = string.IsNullOrEmpty(txtReportageLink.Text) ? string.Empty : txtReportageLink.Text;
-                seoText = string.IsNullOrEmpty(txtSeoText.Text)?string.Empty : txtSeoText.Text;
+                seoText = string.IsNullOrEmpty(txtSeoText.Text) ? string.Empty : txtSeoText.Text;
                 progressValue = 0;
                 prgs.Value = 0;
                 prgs.Visible = true;
@@ -423,9 +424,11 @@ namespace ROBOClicker
                 {
                     Urls = txtDestinationSite.Text.Split(new[] { Environment.NewLine, "," }, StringSplitOptions.None),
                     SeoText = txtSeoText.Text,
-                    WaitTime = int.Parse(txtWaiteTime.Text)
+                    WaitTime = int.Parse(txtWaiteTime.Text),
+                    IsReportage = chkReportageAds.Checked
                 };
                 _saveData.WriteSiteSetting(site);
+                
                 lblSiteMess.Text = "Your setting is set!";
                 grpReportage.Enabled = true;
             }
@@ -562,6 +565,13 @@ namespace ROBOClicker
             lblFileName.Visible = false;
             imgDeleteFile.Visible = false;
         }
+
+        private void chkReportageAds_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs e)
+        {
+            if (chkReportageAds.Checked) txtSeoText.PlaceholderText = "Reportage link"; 
+            else txtSeoText.PlaceholderText = "Seo Text";
+            isReportage = chkReportageAds.Checked;
+        }
     }
     public class JavascriptManager : ILoadHandler, IRenderProcessMessageHandler
     {
@@ -650,7 +660,9 @@ namespace ROBOClicker
 
         private void ClickReportageLink(ref string query)
         {
-            query+= $"var els = document.getElementsByTagName('a[href = '']');";
+            query += $"var els = document.querySelectorAll('a[href = '{ROBO.urls[urlsIndex]}']');";
+            query += $"els[0].click();";
+
         }
 
         public void OnFrameLoadEnd(IWebBrowser chromiumWebBrowser, FrameLoadEndEventArgs frameLoadEndArgs)
@@ -668,32 +680,34 @@ namespace ROBOClicker
                     }
                     #endregion
                     #region CheckIsUrls
+                    string query = "";
+                    if (ROBO.isReportage)
+                        ClickReportageLink(ref query);
+                    else
+                        CreateAD(ref query);
+                    frameLoadEndArgs.Frame.ExecuteJavaScriptAsync(query);
 
-                    if (string.IsNullOrEmpty(ROBO.seoText))
-                    {
-
-                    }
 
                     #endregion
                 }
 
-                if (frameLoadEndArgs.Frame.IsMain)
-                {
-                    string query = "";
-                    if (chromiumWebBrowser.Address.Contains(ROBO.yourSite[0]))
-                    {
-                        Thread.Sleep(ROBO.waitTime);
-                        ClickSistemkaran(ref query);
-                    }
-                    else { LoadSistemKar(ref query); ROBO.progressValue += (100 / ROBO.urls.Length); }
+                //if (frameLoadEndArgs.Frame.IsMain)
+                //{
+
+                //    if (chromiumWebBrowser.Address.Contains(ROBO.yourSite[0]))
+                //    {
+                //        Thread.Sleep(ROBO.waitTime);
+                //        ClickSistemkaran(ref query);
+                //    }
+                //    else { LoadSistemKar(ref query); ROBO.progressValue += (100 / ROBO.urls.Length); }
 
 
-                    //---------------------------------------------
+                //    //---------------------------------------------
 
-                    frameLoadEndArgs.Frame.ExecuteJavaScriptAsync(query);
+                //    frameLoadEndArgs.Frame.ExecuteJavaScriptAsync(query);
 
 
-                }
+                //}
 
             }
             catch (Exception ex)

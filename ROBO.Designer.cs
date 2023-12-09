@@ -30,6 +30,7 @@ namespace ROBOClicker
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ROBO));
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
@@ -64,9 +65,9 @@ namespace ROBOClicker
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties26 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties27 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties28 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ROBO));
             this.browser = new CefSharp.WinForms.ChromiumWebBrowser();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.bunifuPictureBox3 = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.txtServerIP = new Bunifu.UI.WinForms.BunifuTextBox();
             this.btnCreatVpn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.lblVpnName2 = new System.Windows.Forms.Label();
@@ -77,6 +78,7 @@ namespace ROBOClicker
             this.lblVPNMess = new System.Windows.Forms.Label();
             this.txtUsername = new Bunifu.UI.WinForms.BunifuTextBox();
             this.grpSeoSite = new System.Windows.Forms.GroupBox();
+            this.bunifuPictureBox4 = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.lblFileName = new Bunifu.UI.WinForms.BunifuLabel();
             this.imgDeleteFile = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.btnAddScript = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -87,6 +89,7 @@ namespace ROBOClicker
             this.txtDestinationSite = new Bunifu.UI.WinForms.BunifuTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.grpReportage = new System.Windows.Forms.GroupBox();
+            this.bunifuPictureBox5 = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.bunifuPictureBox2 = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.lblReportageMess = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuButton3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -95,18 +98,17 @@ namespace ROBOClicker
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.prgs = new Bunifu.UI.WinForms.BunifuProgressBar();
             this.bunifuPictureBox1 = new Bunifu.UI.WinForms.BunifuPictureBox();
-            this.bunifuPictureBox3 = new Bunifu.UI.WinForms.BunifuPictureBox();
-            this.bunifuPictureBox4 = new Bunifu.UI.WinForms.BunifuPictureBox();
-            this.bunifuPictureBox5 = new Bunifu.UI.WinForms.BunifuPictureBox();
+            this.bunifuLabel2 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.chkReportageAds = new Bunifu.UI.WinForms.BunifuCheckBox();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox3)).BeginInit();
             this.grpSeoSite.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgDeleteFile)).BeginInit();
             this.grpReportage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // browser
@@ -143,6 +145,23 @@ namespace ROBOClicker
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "L2TP VPN Configuration";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // bunifuPictureBox3
+            // 
+            this.bunifuPictureBox3.AllowFocused = false;
+            this.bunifuPictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bunifuPictureBox3.AutoSizeHeight = false;
+            this.bunifuPictureBox3.BorderRadius = 12;
+            this.bunifuPictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuPictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("bunifuPictureBox3.Image")));
+            this.bunifuPictureBox3.IsCircle = true;
+            this.bunifuPictureBox3.Location = new System.Drawing.Point(639, 19);
+            this.bunifuPictureBox3.Name = "bunifuPictureBox3";
+            this.bunifuPictureBox3.Size = new System.Drawing.Size(30, 30);
+            this.bunifuPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bunifuPictureBox3.TabIndex = 29;
+            this.bunifuPictureBox3.TabStop = false;
+            this.bunifuPictureBox3.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
             // 
             // txtServerIP
             // 
@@ -654,6 +673,8 @@ namespace ROBOClicker
             // grpSeoSite
             // 
             this.grpSeoSite.BackColor = System.Drawing.Color.Transparent;
+            this.grpSeoSite.Controls.Add(this.bunifuLabel2);
+            this.grpSeoSite.Controls.Add(this.chkReportageAds);
             this.grpSeoSite.Controls.Add(this.bunifuPictureBox4);
             this.grpSeoSite.Controls.Add(this.lblFileName);
             this.grpSeoSite.Controls.Add(this.imgDeleteFile);
@@ -672,6 +693,23 @@ namespace ROBOClicker
             this.grpSeoSite.TabIndex = 7;
             this.grpSeoSite.TabStop = false;
             this.grpSeoSite.Text = "Your Site Configuration";
+            // 
+            // bunifuPictureBox4
+            // 
+            this.bunifuPictureBox4.AllowFocused = false;
+            this.bunifuPictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bunifuPictureBox4.AutoSizeHeight = false;
+            this.bunifuPictureBox4.BorderRadius = 15;
+            this.bunifuPictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuPictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("bunifuPictureBox4.Image")));
+            this.bunifuPictureBox4.IsCircle = true;
+            this.bunifuPictureBox4.Location = new System.Drawing.Point(642, 16);
+            this.bunifuPictureBox4.Name = "bunifuPictureBox4";
+            this.bunifuPictureBox4.Size = new System.Drawing.Size(30, 30);
+            this.bunifuPictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bunifuPictureBox4.TabIndex = 37;
+            this.bunifuPictureBox4.TabStop = false;
+            this.bunifuPictureBox4.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
             // 
             // lblFileName
             // 
@@ -901,7 +939,7 @@ namespace ROBOClicker
             this.lblSiteMess.CursorType = System.Windows.Forms.Cursors.Default;
             this.lblSiteMess.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.lblSiteMess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lblSiteMess.Location = new System.Drawing.Point(392, 161);
+            this.lblSiteMess.Location = new System.Drawing.Point(574, 72);
             this.lblSiteMess.Name = "lblSiteMess";
             this.lblSiteMess.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblSiteMess.Size = new System.Drawing.Size(0, 0);
@@ -1172,8 +1210,25 @@ namespace ROBOClicker
             this.grpReportage.Size = new System.Drawing.Size(677, 296);
             this.grpReportage.TabIndex = 8;
             this.grpReportage.TabStop = false;
-            this.grpReportage.Text = "Reportage Site";
+            this.grpReportage.Text = "Ad Sites";
             this.grpReportage.Enter += new System.EventHandler(this.grpReportage_Enter);
+            // 
+            // bunifuPictureBox5
+            // 
+            this.bunifuPictureBox5.AllowFocused = false;
+            this.bunifuPictureBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bunifuPictureBox5.AutoSizeHeight = false;
+            this.bunifuPictureBox5.BorderRadius = 15;
+            this.bunifuPictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuPictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("bunifuPictureBox5.Image")));
+            this.bunifuPictureBox5.IsCircle = true;
+            this.bunifuPictureBox5.Location = new System.Drawing.Point(641, 10);
+            this.bunifuPictureBox5.Name = "bunifuPictureBox5";
+            this.bunifuPictureBox5.Size = new System.Drawing.Size(30, 30);
+            this.bunifuPictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bunifuPictureBox5.TabIndex = 38;
+            this.bunifuPictureBox5.TabStop = false;
+            this.bunifuPictureBox5.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
             // 
             // bunifuPictureBox2
             // 
@@ -1313,7 +1368,7 @@ namespace ROBOClicker
             this.bunifuButton2.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
             this.bunifuButton2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuButton2.BackgroundImage")));
             this.bunifuButton2.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.bunifuButton2.ButtonText = "Save RepostageSite";
+            this.bunifuButton2.ButtonText = "Save Ad Sites";
             this.bunifuButton2.ButtonTextMarginLeft = 0;
             this.bunifuButton2.ColorContrastOnClick = 45;
             this.bunifuButton2.ColorContrastOnHover = 45;
@@ -1522,56 +1577,74 @@ namespace ROBOClicker
             this.bunifuPictureBox1.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Square;
             this.bunifuPictureBox1.Click += new System.EventHandler(this.bunifuPictureBox1_Click);
             // 
-            // bunifuPictureBox3
+            // bunifuLabel2
             // 
-            this.bunifuPictureBox3.AllowFocused = false;
-            this.bunifuPictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.bunifuPictureBox3.AutoSizeHeight = false;
-            this.bunifuPictureBox3.BorderRadius = 0;
-            this.bunifuPictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuPictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("bunifuPictureBox3.Image")));
-            this.bunifuPictureBox3.IsCircle = true;
-            this.bunifuPictureBox3.Location = new System.Drawing.Point(639, 19);
-            this.bunifuPictureBox3.Name = "bunifuPictureBox3";
-            this.bunifuPictureBox3.Size = new System.Drawing.Size(30, 24);
-            this.bunifuPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.bunifuPictureBox3.TabIndex = 29;
-            this.bunifuPictureBox3.TabStop = false;
-            this.bunifuPictureBox3.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
+            this.bunifuLabel2.AllowParentOverrides = false;
+            this.bunifuLabel2.AutoEllipsis = false;
+            this.bunifuLabel2.CursorType = null;
+            this.bunifuLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bunifuLabel2.Location = new System.Drawing.Point(269, 140);
+            this.bunifuLabel2.Name = "bunifuLabel2";
+            this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel2.Size = new System.Drawing.Size(100, 15);
+            this.bunifuLabel2.TabIndex = 39;
+            this.bunifuLabel2.Text = "ClickReportageAds";
+            this.bunifuLabel2.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel2.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
-            // bunifuPictureBox4
+            // chkReportageAds
             // 
-            this.bunifuPictureBox4.AllowFocused = false;
-            this.bunifuPictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.bunifuPictureBox4.AutoSizeHeight = false;
-            this.bunifuPictureBox4.BorderRadius = 12;
-            this.bunifuPictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuPictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("bunifuPictureBox4.Image")));
-            this.bunifuPictureBox4.IsCircle = true;
-            this.bunifuPictureBox4.Location = new System.Drawing.Point(642, 16);
-            this.bunifuPictureBox4.Name = "bunifuPictureBox4";
-            this.bunifuPictureBox4.Size = new System.Drawing.Size(30, 30);
-            this.bunifuPictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.bunifuPictureBox4.TabIndex = 37;
-            this.bunifuPictureBox4.TabStop = false;
-            this.bunifuPictureBox4.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
-            // 
-            // bunifuPictureBox5
-            // 
-            this.bunifuPictureBox5.AllowFocused = false;
-            this.bunifuPictureBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.bunifuPictureBox5.AutoSizeHeight = false;
-            this.bunifuPictureBox5.BorderRadius = 12;
-            this.bunifuPictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuPictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("bunifuPictureBox5.Image")));
-            this.bunifuPictureBox5.IsCircle = true;
-            this.bunifuPictureBox5.Location = new System.Drawing.Point(641, 10);
-            this.bunifuPictureBox5.Name = "bunifuPictureBox5";
-            this.bunifuPictureBox5.Size = new System.Drawing.Size(30, 30);
-            this.bunifuPictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.bunifuPictureBox5.TabIndex = 38;
-            this.bunifuPictureBox5.TabStop = false;
-            this.bunifuPictureBox5.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
+            this.chkReportageAds.AllowBindingControlAnimation = true;
+            this.chkReportageAds.AllowBindingControlColorChanges = false;
+            this.chkReportageAds.AllowBindingControlLocation = true;
+            this.chkReportageAds.AllowCheckBoxAnimation = true;
+            this.chkReportageAds.AllowCheckmarkAnimation = true;
+            this.chkReportageAds.AllowOnHoverStates = true;
+            this.chkReportageAds.AutoCheck = true;
+            this.chkReportageAds.BackColor = System.Drawing.Color.Transparent;
+            this.chkReportageAds.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkReportageAds.BackgroundImage")));
+            this.chkReportageAds.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.chkReportageAds.BindingControlPosition = Bunifu.UI.WinForms.BunifuCheckBox.BindingControlPositions.Right;
+            this.chkReportageAds.BorderRadius = 12;
+            this.chkReportageAds.Checked = false;
+            this.chkReportageAds.CheckState = Bunifu.UI.WinForms.BunifuCheckBox.CheckStates.Unchecked;
+            this.chkReportageAds.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkReportageAds.CustomCheckmarkImage = null;
+            this.chkReportageAds.Location = new System.Drawing.Point(242, 134);
+            this.chkReportageAds.MinimumSize = new System.Drawing.Size(17, 17);
+            this.chkReportageAds.Name = "chkReportageAds";
+            this.chkReportageAds.OnCheck.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.chkReportageAds.OnCheck.BorderRadius = 12;
+            this.chkReportageAds.OnCheck.BorderThickness = 2;
+            this.chkReportageAds.OnCheck.CheckBoxColor = System.Drawing.Color.DodgerBlue;
+            this.chkReportageAds.OnCheck.CheckmarkColor = System.Drawing.Color.White;
+            this.chkReportageAds.OnCheck.CheckmarkThickness = 2;
+            this.chkReportageAds.OnDisable.BorderColor = System.Drawing.Color.LightGray;
+            this.chkReportageAds.OnDisable.BorderRadius = 12;
+            this.chkReportageAds.OnDisable.BorderThickness = 2;
+            this.chkReportageAds.OnDisable.CheckBoxColor = System.Drawing.Color.Transparent;
+            this.chkReportageAds.OnDisable.CheckmarkColor = System.Drawing.Color.LightGray;
+            this.chkReportageAds.OnDisable.CheckmarkThickness = 2;
+            this.chkReportageAds.OnHoverChecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.chkReportageAds.OnHoverChecked.BorderRadius = 12;
+            this.chkReportageAds.OnHoverChecked.BorderThickness = 2;
+            this.chkReportageAds.OnHoverChecked.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.chkReportageAds.OnHoverChecked.CheckmarkColor = System.Drawing.Color.White;
+            this.chkReportageAds.OnHoverChecked.CheckmarkThickness = 2;
+            this.chkReportageAds.OnHoverUnchecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.chkReportageAds.OnHoverUnchecked.BorderRadius = 12;
+            this.chkReportageAds.OnHoverUnchecked.BorderThickness = 1;
+            this.chkReportageAds.OnHoverUnchecked.CheckBoxColor = System.Drawing.Color.Transparent;
+            this.chkReportageAds.OnUncheck.BorderColor = System.Drawing.Color.DarkGray;
+            this.chkReportageAds.OnUncheck.BorderRadius = 12;
+            this.chkReportageAds.OnUncheck.BorderThickness = 1;
+            this.chkReportageAds.OnUncheck.CheckBoxColor = System.Drawing.Color.Transparent;
+            this.chkReportageAds.Size = new System.Drawing.Size(21, 21);
+            this.chkReportageAds.Style = Bunifu.UI.WinForms.BunifuCheckBox.CheckBoxStyles.Bunifu;
+            this.chkReportageAds.TabIndex = 38;
+            this.chkReportageAds.ThreeState = false;
+            this.chkReportageAds.ToolTipText = "No Vpn";
+            this.chkReportageAds.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs>(this.chkReportageAds_CheckedChanged);
             // 
             // ROBO
             // 
@@ -1593,16 +1666,16 @@ namespace ROBOClicker
             this.Load += new System.EventHandler(this.ROBO_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox3)).EndInit();
             this.grpSeoSite.ResumeLayout(false);
             this.grpSeoSite.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgDeleteFile)).EndInit();
             this.grpReportage.ResumeLayout(false);
             this.grpReportage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1642,5 +1715,7 @@ namespace ROBOClicker
         private Bunifu.UI.WinForms.BunifuPictureBox bunifuPictureBox3;
         private Bunifu.UI.WinForms.BunifuPictureBox bunifuPictureBox4;
         private Bunifu.UI.WinForms.BunifuPictureBox bunifuPictureBox5;
+        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel2;
+        private Bunifu.UI.WinForms.BunifuCheckBox chkReportageAds;
     }
 }

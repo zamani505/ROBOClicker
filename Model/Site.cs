@@ -6,5 +6,6 @@ namespace ROBOClicker.Model
         public string[] Urls { get; set; }
         public int WaitTime { get; set; }
         public string SeoText { get; set; }
+        public bool IsReportage { get; set; }
     }
 }
