@@ -658,9 +658,9 @@ namespace ROBOClicker
             query += "document.getElementById('aSeo').click();" + Environment.NewLine;
         }
 
-        private void ClickReportageLink(ref string query)
+        private void ClickReportageLink(ref string query,string link)
         {
-            query += $"var els = document.querySelectorAll('a[href = '{ROBO.urls[urlsIndex]}']');";
+            query += $"var els = document.querySelectorAll('a[href = '{link}']');";
             query += $"els[0].click();";
 
         }
@@ -675,14 +675,17 @@ namespace ROBOClicker
                     var isYourSite = CheckIsYourSite(chromiumWebBrowser.Address, frameLoadEndArgs);
                     if (isYourSite)
                     {
-                        NextYourSite();
+                        string siteLink = "";
+                        ClickReportageLink(ref siteLink, ROBO.yourSite[yourSiteIndex]);
+                        //NextYourSite();
+                        frameLoadEndArgs.Frame.ExecuteJavaScriptAsync(siteLink);
                         return;
                     }
                     #endregion
                     #region CheckIsUrls
                     string query = "";
                     if (ROBO.isReportage)
-                        ClickReportageLink(ref query);
+                        ClickReportageLink(ref query, ROBO.urls[urlsIndex]);
                     else
                         CreateAD(ref query);
                     frameLoadEndArgs.Frame.ExecuteJavaScriptAsync(query);
