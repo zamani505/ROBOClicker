@@ -35,7 +35,7 @@ namespace ROBOClicker
         public static byte reportageCounter = 0;
         public static RoboSetting _roboSetting;
         public static ScriptFiles _scriptFiles;
-        public  static bool isReportage=false
+        public static bool isReportage = false;
         CreateConnection _createConn = new CreateConnection();
         SaveData _saveData = new SaveData();
         IPCatchService _ipCatchService = new IPCatchService();
@@ -571,6 +571,16 @@ namespace ROBOClicker
             if (chkReportageAds.Checked) txtSeoText.PlaceholderText = "Reportage link"; 
             else txtSeoText.PlaceholderText = "Seo Text";
             isReportage = chkReportageAds.Checked;
+        }
+
+        private void bunifuPictureBox3_Click(object sender, EventArgs e)
+        {
+            pnlVpn.Visible = true;
+        }
+
+        private void btnVpnOK_Click(object sender, EventArgs e)
+        {
+            pnlVpn.Visible = false;
         }
     }
     public class JavascriptManager : ILoadHandler, IRenderProcessMessageHandler

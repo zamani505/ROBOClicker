@@ -251,6 +251,7 @@
     <Content Include="delete.png" />
     <Content Include="info.png" />
     <Content Include="media_player.ico" />
+    <Content Include="notification.png" />
     <Content Include="obj\Bunifu.Licensing.dll" />
     <Content Include="obj\Bunifu.UI.WinForms.dll" />
     <Content Include="obj\Bunifu.UI.WinForms.xml" />
