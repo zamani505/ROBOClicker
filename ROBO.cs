@@ -39,6 +39,7 @@ namespace ROBOClicker
         CreateConnection _createConn = new CreateConnection();
         SaveData _saveData = new SaveData();
         IPCatchService _ipCatchService = new IPCatchService();
+        HelpService _helpService = new HelpService();
         public bool isVpnConnected = false;
         #endregion
         public async Task InitBrowser()
@@ -575,12 +576,19 @@ namespace ROBOClicker
 
         private void bunifuPictureBox3_Click(object sender, EventArgs e)
         {
+            txtVpnHelp.Text = _helpService.ReadHelp("h1.txt");
             pnlVpn.Visible = true;
         }
 
         private void btnVpnOK_Click(object sender, EventArgs e)
         {
             pnlVpn.Visible = false;
+        }
+
+        private void bunifuPictureBox4_Click(object sender, EventArgs e)
+        {
+            txtVpnHelp.Text = _helpService.ReadHelp("h2.txt");
+            pnlVpn.Visible = true;
         }
     }
     public class JavascriptManager : ILoadHandler, IRenderProcessMessageHandler

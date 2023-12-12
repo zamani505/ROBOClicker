@@ -99,6 +99,7 @@
       <DependentUpon>ROBO.cs</DependentUpon>
     </Compile>
     <Compile Include="Service\CreateConnection.cs" />
+    <Compile Include="Service\HelpService.cs" />
     <Compile Include="Service\IPCatchService.cs" />
     <Compile Include="Service\SaveData.cs" />
     <EmbeddedResource Include="BuForm.resx">
@@ -235,6 +236,7 @@
     <Content Include="bin\Debug\d3dcompiler_47.dll" />
     <Content Include="bin\Debug\DotRas.dll" />
     <Content Include="bin\Debug\h1.txt" />
+    <Content Include="bin\Debug\h2.txt" />
     <Content Include="bin\Debug\libcef.dll" />
     <Content Include="bin\Debug\libEGL.dll" />
     <Content Include="bin\Debug\libGLESv2.dll" />
