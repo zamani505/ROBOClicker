@@ -237,6 +237,7 @@
     <Content Include="bin\Debug\DotRas.dll" />
     <Content Include="bin\Debug\h1.txt" />
     <Content Include="bin\Debug\h2.txt" />
+    <Content Include="bin\Debug\h3.txt" />
     <Content Include="bin\Debug\libcef.dll" />
     <Content Include="bin\Debug\libEGL.dll" />
     <Content Include="bin\Debug\libGLESv2.dll" />

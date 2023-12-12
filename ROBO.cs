@@ -590,6 +590,12 @@ namespace ROBOClicker
             txtVpnHelp.Text = _helpService.ReadHelp("h2.txt");
             pnlVpn.Visible = true;
         }
+
+        private void bunifuPictureBox5_Click(object sender, EventArgs e)
+        {
+            txtVpnHelp.Text = _helpService.ReadHelp("h3.txt");
+            pnlVpn.Visible = true;
+        }
     }
     public class JavascriptManager : ILoadHandler, IRenderProcessMessageHandler
     {
