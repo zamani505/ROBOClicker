@@ -208,8 +208,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="back2.jpg" />
-    <Content Include="bin\Debug\Bunifu.Licensing.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.dll" />
+    <Content Include="bin\Debug\Bunifu.Licensing.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\Bunifu.UI.WinForms.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="bin\Debug\Bunifu.UI.WinForms.xml" />
     <Content Include="bin\Debug\CefSharp.BrowserSubprocess.Core.dll" />
     <Content Include="bin\Debug\CefSharp.BrowserSubprocess.Core.pdb" />
@@ -230,6 +234,7 @@
     <Content Include="bin\Debug\chrome_elf.dll" />
     <Content Include="bin\Debug\d3dcompiler_47.dll" />
     <Content Include="bin\Debug\DotRas.dll" />
+    <Content Include="bin\Debug\h1.txt" />
     <Content Include="bin\Debug\libcef.dll" />
     <Content Include="bin\Debug\libEGL.dll" />
     <Content Include="bin\Debug\libGLESv2.dll" />
@@ -237,9 +242,11 @@
     <Content Include="bin\Debug\Newtonsoft.Json.dll" />
     <Content Include="bin\Debug\rba.dll" />
     <Content Include="bin\Debug\README.txt" />
+    <Content Include="bin\Debug\robo.dll" />
     <Content Include="bin\Debug\ROBOClicker.exe" />
     <Content Include="bin\Debug\ROBOClicker.pdb" />
     <Content Include="bin\Debug\rpt.dll" />
+    <Content Include="bin\Debug\scf.dll" />
     <Content Include="bin\Debug\ssl.dll" />
     <Content Include="bin\Debug\swiftshader\libEGL.dll" />
     <Content Include="bin\Debug\swiftshader\libGLESv2.dll" />
